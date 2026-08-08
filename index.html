@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
 <title>Happy Birthday, My King ❤️</title>
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
 
 * {
@@ -61,7 +63,10 @@ section {
     font-size: 13px;
 }
 
-/* STARS */
+
+/* =========================
+   STARS
+========================= */
 
 .stars {
     position: fixed;
@@ -81,11 +86,19 @@ section {
 }
 
 @keyframes twinkle {
-    from { opacity: .15; }
-    to { opacity: .9; }
+    from {
+        opacity: .15;
+    }
+
+    to {
+        opacity: .9;
+    }
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
     text-align: center;
@@ -97,8 +110,13 @@ section {
 }
 
 @keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
 }
 
 .hero h2 {
@@ -131,10 +149,15 @@ section {
 }
 
 @keyframes bounce {
-    50% { transform: translateY(8px); }
+    50% {
+        transform: translateY(8px);
+    }
 }
 
-/* MUSIC */
+
+/* =========================
+   MUSIC
+========================= */
 
 .music-card {
     max-width: 600px;
@@ -171,6 +194,9 @@ section {
     color: #e8c982;
     text-decoration: none;
     transition: .3s;
+    background: transparent;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
 }
 
 .button:hover {
@@ -178,10 +204,16 @@ section {
     color: #17131d;
 }
 
-/* DINOSAUR */
+
+/* =========================
+   PREMIUM DINOSAUR SECTION
+========================= */
 
 .dino-section {
-    background: radial-gradient(circle at center, rgba(69,100,70,.35), transparent 48%);
+    background:
+        radial-gradient(circle at 50% 45%, rgba(75,130,80,.25), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(232,201,130,.08), transparent 45%);
+    overflow: hidden;
 }
 
 .dino-title {
@@ -190,76 +222,300 @@ section {
     margin: 15px 0;
 }
 
-.egg {
-    width: 155px;
-    height: 195px;
-    margin: 45px auto 25px;
-    background:
-        radial-gradient(circle at 30% 30%, #eee1bd 4px, transparent 5px),
-        radial-gradient(circle at 70% 60%, #d8c697 5px, transparent 6px),
-        radial-gradient(circle at 40% 75%, #cbb982 4px, transparent 5px),
-        #d7c596;
-    border-radius: 50% 50% 45% 45%;
-    box-shadow: 0 20px 60px rgba(0,0,0,.45);
-    cursor: pointer;
+.egg-container {
     position: relative;
+    width: 250px;
+    height: 310px;
+    margin: 45px auto 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* GLOW */
+
+.egg-glow {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: rgba(232,201,130,.18);
+    filter: blur(40px);
+    animation: eggGlow 3s ease-in-out infinite;
+}
+
+@keyframes eggGlow {
+
+    0%,100% {
+        transform: scale(.85);
+        opacity: .4;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: .85;
+    }
+}
+
+
+/* EGG */
+
+.egg {
+    width: 160px;
+    height: 205px;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+
+    background:
+        radial-gradient(circle at 28% 25%,
+            rgba(255,255,255,.35) 0 3px,
+            transparent 4px),
+
+        radial-gradient(circle at 70% 30%,
+            rgba(90,70,40,.25) 0 5px,
+            transparent 6px),
+
+        radial-gradient(circle at 35% 65%,
+            rgba(90,70,40,.20) 0 4px,
+            transparent 5px),
+
+        radial-gradient(circle at 75% 70%,
+            rgba(255,255,255,.20) 0 3px,
+            transparent 4px),
+
+        linear-gradient(145deg,
+            #f1e5c2,
+            #d1bd85);
+
+    border-radius:
+        50% 50% 46% 46% /
+        58% 58% 42% 42%;
+
+    box-shadow:
+        inset -18px -22px 35px rgba(70,50,20,.25),
+        inset 15px 10px 25px rgba(255,255,255,.3),
+        0 25px 60px rgba(0,0,0,.5);
+
     animation: eggFloat 3s ease-in-out infinite;
 }
 
 @keyframes eggFloat {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
 }
 
-.egg.shake {
-    animation: shake .7s ease-in-out;
+
+/* EGG SHADOW */
+
+.egg-container::after {
+    content: "";
+    position: absolute;
+    bottom: 15px;
+    width: 135px;
+    height: 25px;
+    background: rgba(0,0,0,.35);
+    filter: blur(12px);
+    border-radius: 50%;
 }
 
-@keyframes shake {
-    0%,100% { transform: rotate(0); }
-    20% { transform: rotate(-8deg); }
-    40% { transform: rotate(8deg); }
-    60% { transform: rotate(-8deg); }
-    80% { transform: rotate(8deg); }
-}
+
+/* CRACK */
 
 .crack {
     position: absolute;
-    width: 105px;
-    height: 40px;
-    border-bottom: 5px solid #594b36;
-    top: 82px;
-    left: 25px;
-    transform: rotate(-10deg);
+    top: 78px;
+    left: 22px;
+    width: 115px;
+    height: 65px;
     opacity: 0;
+    z-index: 5;
+}
+
+.crack::before,
+.crack::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 48px;
+    background: #594b36;
+    border-radius: 5px;
+}
+
+.crack::before {
+    left: 48px;
+    top: 0;
+    transform: rotate(35deg);
+}
+
+.crack::after {
+    left: 72px;
+    top: 20px;
+    transform: rotate(-45deg);
 }
 
 .egg.cracked .crack {
     opacity: 1;
+    animation: crackGlow .8s ease-in-out;
 }
 
-.dino {
-    display: none;
-    font-size: 110px;
-    animation: dinoAppear 1s forwards;
-}
+@keyframes crackGlow {
 
-@keyframes dinoAppear {
-    from {
-        transform: scale(0) rotate(-20deg);
+    0% {
+        transform: scale(.8);
         opacity: 0;
     }
-    to {
-        transform: scale(1) rotate(0);
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
         opacity: 1;
     }
 }
 
-/* KING & QUEEN */
+
+/* SHAKE */
+
+.egg.shake {
+    animation: eggShake .7s ease-in-out;
+}
+
+@keyframes eggShake {
+
+    0%,100% {
+        transform: rotate(0);
+    }
+
+    15% {
+        transform: rotate(-8deg);
+    }
+
+    30% {
+        transform: rotate(8deg);
+    }
+
+    45% {
+        transform: rotate(-10deg);
+    }
+
+    60% {
+        transform: rotate(10deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+}
+
+
+/* DINOSAUR */
+
+.dino {
+    display: none;
+    position: relative;
+    z-index: 10;
+    font-size: 145px;
+
+    filter:
+        drop-shadow(0 0 18px rgba(120,180,100,.65))
+        drop-shadow(0 20px 30px rgba(0,0,0,.5));
+
+    animation:
+        dinoAppear 1.2s cubic-bezier(.17,.89,.32,1.49)
+        forwards;
+}
+
+@keyframes dinoAppear {
+
+    0% {
+        transform:
+            scale(0)
+            translateY(80px)
+            rotate(-20deg);
+
+        opacity: 0;
+    }
+
+    60% {
+        transform:
+            scale(1.2)
+            translateY(-15px)
+            rotate(8deg);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            scale(1)
+            translateY(0)
+            rotate(0);
+
+        opacity: 1;
+    }
+}
+
+
+/* SPARKLES */
+
+.hatch-sparkle {
+    position: absolute;
+    pointer-events: none;
+    color: #e8c982;
+    font-size: 20px;
+    animation: sparkleBurst 1.5s ease-out forwards;
+    z-index: 20;
+}
+
+@keyframes sparkleBurst {
+
+    0% {
+        transform:
+            translate(0,0)
+            scale(.2);
+
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(
+                calc(var(--x) * 1px),
+                calc(var(--y) * 1px)
+            )
+            scale(1.4);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   KING & QUEEN
+========================= */
 
 .royal {
     background:
-        radial-gradient(circle at 50% 20%, rgba(232,201,130,.12), transparent 35%);
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(232,201,130,.12),
+            transparent 35%
+        );
 }
 
 .royal-title {
@@ -303,18 +559,18 @@ section {
     font-size: 40px;
 }
 
-/* ARGENTINA */
-
 .argentina {
     margin-top: 35px;
     padding: 20px;
     border-radius: 15px;
-    background: linear-gradient(
-        to bottom,
-        rgba(116,194,229,.15),
-        rgba(255,255,255,.05),
-        rgba(116,194,229,.15)
-    );
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(116,194,229,.15),
+            rgba(255,255,255,.05),
+            rgba(116,194,229,.15)
+        );
 }
 
 .argentina p {
@@ -322,7 +578,10 @@ section {
     opacity: .75;
 }
 
-/* STORY */
+
+/* =========================
+   STORY
+========================= */
 
 .story-card {
     max-width: 650px;
@@ -340,11 +599,14 @@ section {
     margin: 12px 0;
 }
 
-/* COUNTDOWN */
+
+/* =========================
+   COUNTDOWN
+========================= */
 
 .countdown {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4,1fr);
     gap: 15px;
     max-width: 700px;
     margin: 40px auto;
@@ -371,7 +633,10 @@ section {
     letter-spacing: 2px;
 }
 
-/* LETTER */
+
+/* =========================
+   LOVE LETTER
+========================= */
 
 .letter {
     max-width: 720px;
@@ -405,11 +670,14 @@ section {
     text-align: right;
 }
 
-/* GALLERY */
+
+/* =========================
+   GALLERY
+========================= */
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 18px;
     margin-top: 40px;
 }
@@ -435,7 +703,10 @@ section {
     transform: scale(1.08);
 }
 
-/* FACTS */
+
+/* =========================
+   FACTS
+========================= */
 
 .facts {
     display: grid;
@@ -467,7 +738,10 @@ section {
     line-height: 1.7;
 }
 
-/* FINAL */
+
+/* =========================
+   FINAL
+========================= */
 
 .final {
     min-height: 100vh;
@@ -479,13 +753,19 @@ section {
 }
 
 @keyframes heartbeat {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
 }
 
 .final h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(48px, 8vw, 85px);
+    font-size: clamp(48px,8vw,85px);
     font-weight: 500;
     margin: 20px 0;
 }
@@ -497,7 +777,10 @@ section {
     opacity: .8;
 }
 
-/* SURPRISE */
+
+/* =========================
+   SURPRISE
+========================= */
 
 #surprise {
     display: none;
@@ -517,10 +800,12 @@ section {
 }
 
 @keyframes reveal {
+
     from {
         transform: scale(.7);
         opacity: 0;
     }
+
     to {
         transform: scale(1);
         opacity: 1;
@@ -544,7 +829,10 @@ section {
     line-height: 1.7;
 }
 
-/* HEARTS */
+
+/* =========================
+   FLOATING HEARTS
+========================= */
 
 .heart {
     position: fixed;
@@ -555,18 +843,32 @@ section {
 }
 
 @keyframes rise {
+
     0% {
-        transform: translateY(0) rotate(0);
+        transform:
+            translateY(0)
+            rotate(0);
+
         opacity: 0;
     }
-    20% { opacity: 1; }
+
+    20% {
+        opacity: 1;
+    }
+
     100% {
-        transform: translateY(-110vh) rotate(360deg);
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
         opacity: 0;
     }
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:700px) {
 
@@ -611,16 +913,32 @@ section {
     .royal-box {
         padding: 30px 15px;
     }
+
+    .egg-container {
+        transform: scale(.9);
+    }
+
+    .dino {
+        font-size: 120px;
+    }
 }
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- STARS -->
 
 <div class="stars" id="stars"></div>
 
+
 <!-- HERO -->
+
 <section class="hero">
+
 <div class="content">
 
 <div class="crown">👑</div>
@@ -633,33 +951,50 @@ Happy Birthday,
 <span class="gold">Santi</span>
 </h1>
 
-<div class="date">August 22, 2026</div>
+<div class="date">
+August 22, 2026
+</div>
 
-<p class="script" style="font-size:28px;margin-top:25px;">
+<p
+class="script"
+style="font-size:28px;margin-top:25px;">
 Mi amor ❤️
 </p>
 
-<div class="scroll">SCROLL DOWN ↓</div>
+<div class="scroll">
+SCROLL DOWN ↓
+</div>
 
 </div>
+
 </section>
 
 
 <!-- SONG -->
+
 <section>
+
 <div class="content">
 
-<p class="small-gold">Our song</p>
+<p class="small-gold">
+Our song
+</p>
 
-<h2 class="script" style="font-size:58px;">
+<h2
+class="script"
+style="font-size:58px;">
 A song for us ❤️
 </h2>
 
 <div class="music-card">
 
-<div class="music-icon">🎵</div>
+<div class="music-icon">
+🎵
+</div>
 
-<h3>No Matter Where You Are</h3>
+<h3>
+No Matter Where You Are
+</h3>
 
 <p>
 Wedding Version
@@ -681,25 +1016,37 @@ rel="noopener">
 </div>
 
 </div>
+
 </section>
 
 
 <!-- DINOSAUR -->
+
 <section class="dino-section">
 
 <div class="content">
 
-<p class="small-gold">A prehistoric surprise</p>
+<p class="small-gold">
+A prehistoric surprise
+</p>
 
 <h2 class="dino-title">
+
 Something prehistoric
 <br>
+
 is waiting for you 🦖
+
 </h2>
 
 <p>
 Because I know how much my King loves dinosaurs.
 </p>
+
+
+<div class="egg-container">
+
+<div class="egg-glow"></div>
 
 <div
 class="egg"
@@ -710,25 +1057,41 @@ onclick="hatchEgg()">
 
 </div>
 
-<div class="dino" id="babyDino">🦖</div>
+
+<div
+class="dino"
+id="babyDino">
+
+🦖
+
+</div>
+
+</div>
+
 
 <p
 id="eggText"
 class="script"
 style="font-size:28px;">
+
 Tap the egg... 🥚
+
 </p>
 
 </div>
+
 </section>
 
 
 <!-- KING & QUEEN -->
+
 <section class="royal">
 
 <div class="content">
 
-<p class="small-gold">Our little kingdom</p>
+<p class="small-gold">
+Our little kingdom
+</p>
 
 <h2 class="royal-title">
 King & Queen 👑
@@ -740,62 +1103,91 @@ King & Queen 👑
 
 <div class="person">
 
-<div class="person-icon">👑</div>
+<div class="person-icon">
+👑
+</div>
 
-<h3>Santi</h3>
+<h3>
+Santi
+</h3>
 
-<p>My King</p>
+<p>
+My King 🇦🇷
+</p>
 
 </div>
 
-<div class="heart-between">❤️</div>
+
+<div class="heart-between">
+❤️
+</div>
+
 
 <div class="person">
 
-<div class="person-icon">👸</div>
+<div class="person-icon">
+👸
+</div>
 
-<h3>Your Queen</h3>
+<h3>
+Your Queen
+</h3>
 
-<p>Always yours</p>
+<p>
+Always yours 🇵🇭
+</p>
 
 </div>
 
 </div>
+
 
 <div class="argentina">
 
 🇵🇭 ❤️ 🇦🇷
 
 <p>
+
 A Queen in the Philippines,
 a King in Argentina,
 but one heart,
 one love,
 and one story between us. ❤️
+
 </p>
 
 </div>
-    
+
 </div>
 
 </div>
+
 </section>
 
 
 <!-- OUR STORY -->
+
 <section>
 
 <div class="content">
 
-<p class="small-gold">Our story</p>
+<p class="small-gold">
+Our story
+</p>
 
-<h2 class="script" style="font-size:60px;">
+<h2
+class="script"
+style="font-size:60px;">
+
 Where our story began ❤️
+
 </h2>
 
 <div class="story-card">
 
-<p>Our beginning</p>
+<p>
+Our beginning
+</p>
 
 <div class="story-date">
 November 30, 2025
@@ -806,72 +1198,130 @@ The day two hearts decided to start
 writing their own little story.
 </p>
 
-<p class="script" style="font-size:27px;margin-top:20px;">
+<p
+class="script"
+style="font-size:27px;margin-top:20px;">
+
 And I hope this is only the beginning
 of many chapters together.
+
 </p>
 
 </div>
 
 </div>
+
 </section>
 
 
 <!-- COUNTDOWN -->
+
 <section>
 
 <div class="content">
 
-<p class="small-gold">Counting down to your special day</p>
+<p class="small-gold">
+Counting down to your special day
+</p>
 
-<h2 class="script" style="font-size:60px;">
+<h2
+class="script"
+style="font-size:60px;">
+
 Your Birthday 🎂
+
 </h2>
+
 
 <div class="countdown">
 
-<div class="time-box">
-<span id="days">00</span>
-<small>Days</small>
-</div>
 
 <div class="time-box">
-<span id="hours">00</span>
-<small>Hours</small>
+
+<span id="days">
+00
+</span>
+
+<small>
+Days
+</small>
+
 </div>
+
 
 <div class="time-box">
-<span id="minutes">00</span>
-<small>Minutes</small>
+
+<span id="hours">
+00
+</span>
+
+<small>
+Hours
+</small>
+
 </div>
+
 
 <div class="time-box">
-<span id="seconds">00</span>
-<small>Seconds</small>
-</div>
+
+<span id="minutes">
+00
+</span>
+
+<small>
+Minutes
+</small>
 
 </div>
 
-<p class="script" style="font-size:25px;">
-August 22, 2026 — the day my King was born. ❤️
+
+<div class="time-box">
+
+<span id="seconds">
+00
+</span>
+
+<small>
+Seconds
+</small>
+
+</div>
+
+
+</div>
+
+
+<p
+class="script"
+style="font-size:25px;">
+
+August 22, 2026 —
+the day my King was born. ❤️
+
 </p>
 
 </div>
+
 </section>
 
 
 <!-- LOVE LETTER -->
+
 <section>
 
 <div class="content">
 
 <div class="letter">
 
-<h2>My Dearest Santi,</h2>
+<h2>
+My Dearest Santi,
+</h2>
+
 
 <p>
 Happy Birthday, mi amor. ❤️
 </p>
+
 
 <p>
 I wanted to make something just for you.
@@ -880,12 +1330,14 @@ but something that carries a little piece
 of my heart.
 </p>
 
+
 <p>
 I love how sweet and understanding you are.
 I love how you listen, how you care,
 and how you can make me smile even when
 we are far away from each other.
 </p>
+
 
 <p>
 I love knowing that you enjoy your games,
@@ -895,10 +1347,12 @@ I find especially sweet about you is how
 you love cooking for your family.
 </p>
 
+
 <p>
 You have a beautiful heart, Santi.
 I hope you never forget that.
 </p>
+
 
 <p>
 I hope this birthday brings you everything
@@ -908,11 +1362,13 @@ gaming, and maybe a few dinosaurs along
 the way. 🦖
 </p>
 
+
 <p>
 Even though you're in Argentina and I'm far
 away, I want you to remember that distance
 doesn't make you any less important to me.
 </p>
+
 
 <p>
 If I could be there beside you today,
@@ -920,10 +1376,16 @@ I would hold you close, look at you,
 and simply say:
 </p>
 
-<p class="script" style="font-size:30px;text-align:center;">
+
+<p
+class="script"
+style="font-size:30px;text-align:center;">
+
 "Happy Birthday, my King.
 I'm so happy you exist."
+
 </p>
+
 
 <p>
 Until the day we can celebrate together,
@@ -932,134 +1394,226 @@ that someone is thinking about you,
 loving you, and cheering for you.
 </p>
 
-<p class="signature">
+
+<p
+class="signature">
+
 With all my love,
 <br>
 Your Queen ❤️
+
 </p>
 
 </div>
 
 </div>
+
 </section>
 
 
 <!-- PHOTOS -->
+
 <section>
 
 <div class="content">
 
-<p class="small-gold">Our memories</p>
+<p class="small-gold">
+Our memories
+</p>
 
-<h2 class="script" style="font-size:60px;">
+<h2
+class="script"
+style="font-size:60px;">
+
 A little piece of us ❤️
+
 </h2>
 
-<p style="opacity:.7;margin-top:12px;">
+<p
+style="opacity:.7;margin-top:12px;">
+
 Every picture holds a little piece of our story.
+
 </p>
+
 
 <div class="gallery">
 
-<div class="photo">
-<img src="13.jpeg" alt="Our memory">
-</div>
 
 <div class="photo">
-<img src="16.jpeg" alt="Our memory">
+<img
+src="13.jpeg"
+alt="Our memory">
 </div>
+
 
 <div class="photo">
-<img src="18.jpeg" alt="Our memory">
+<img
+src="16.jpeg"
+alt="Our memory">
 </div>
+
 
 <div class="photo">
-<img src="3.jpeg" alt="Our memory">
+<img
+src="18.jpeg"
+alt="Our memory">
 </div>
+
 
 <div class="photo">
-<img src="5.jpeg" alt="Our memory">
+<img
+src="3.jpeg"
+alt="Our memory">
 </div>
+
 
 <div class="photo">
-<img src="6.jpeg" alt="Our memory">
+<img
+src="5.jpeg"
+alt="Our memory">
 </div>
+
 
 <div class="photo">
-<img src="9.jpeg" alt="Our memory">
+<img
+src="6.jpeg"
+alt="Our memory">
 </div>
+
 
 <div class="photo">
-<img src="lensbooth-strip-1786039570049.jpg" alt="Our memory">
+<img
+src="9.jpeg"
+alt="Our memory">
 </div>
+
 
 <div class="photo">
-<img src="lensbooth-strip-1786039883724.jpg" alt="Our memory">
+<img
+src="lensbooth-strip-1786039570049.jpg"
+alt="Our memory">
 </div>
+
+
+<div class="photo">
+<img
+src="lensbooth-strip-1786039883724.jpg"
+alt="Our memory">
+</div>
+
 
 </div>
 
 </div>
+
 </section>
 
 
 <!-- THINGS ABOUT SANTI -->
+
 <section>
 
 <div class="content">
 
-<p class="small-gold">Things I love about you</p>
+<p class="small-gold">
+Things I love about you
+</p>
 
-<h2 class="script" style="font-size:60px;">
+<h2
+class="script"
+style="font-size:60px;">
+
 My favorite person ❤️
+
 </h2>
+
 
 <div class="facts">
 
+
 <div class="fact">
-<div class="fact-icon">🦖</div>
-<h3>Dinosaur Lover</h3>
+
+<div class="fact-icon">
+🦖
+</div>
+
+<h3>
+Dinosaur Lover
+</h3>
+
 <p>
 Because apparently dinosaurs are
 one of the most important things
 in life. 😂🦖
 </p>
+
 </div>
 
+
 <div class="fact">
-<div class="fact-icon">🎮</div>
-<h3>My Gamer</h3>
+
+<div class="fact-icon">
+🎮
+</div>
+
+<h3>
+My Gamer
+</h3>
+
 <p>
 My King can disappear into his PC games,
 but somehow I still love him anyway. ❤️
 </p>
+
 </div>
 
+
 <div class="fact">
-<div class="fact-icon">🍳</div>
-<h3>Family Cook</h3>
+
+<div class="fact-icon">
+🍳
+</div>
+
+<h3>
+Family Cook
+</h3>
+
 <p>
 One of the sweetest things about you is
 how you love cooking for your family.
 </p>
+
 </div>
 
+
 <div class="fact">
-<div class="fact-icon">❤️</div>
-<h3>Sweet & Understanding</h3>
+
+<div class="fact-icon">
+❤️
+</div>
+
+<h3>
+Sweet & Understanding
+</h3>
+
 <p>
 Your kindness, patience and understanding
 are some of the things I treasure most.
 </p>
+
 </div>
+
 
 </div>
 
 </div>
+
 </section>
 
 
 <!-- DINOSAUR MESSAGE -->
+
 <section class="dino-section">
 
 <div class="content">
@@ -1071,100 +1625,139 @@ are some of the things I treasure most.
 <h2
 class="script"
 style="font-size:55px;color:#e8c982;margin-top:20px;">
+
 Even dinosaurs couldn't survive forever...
+
 </h2>
 
 <p
 class="script"
 style="font-size:31px;margin-top:25px;">
+
 but my love for you will. ❤️
+
 </p>
 
 </div>
+
 </section>
 
 
 <!-- FINAL -->
+
 <section class="final">
 
 <div class="content">
 
-<div class="final-heart">❤️</div>
+<div class="final-heart">
+❤️
+</div>
 
 <h2>
+
 Happy Birthday,
 <br>
-<span class="gold">Mi Amor</span>
+
+<span class="gold">
+Mi Amor
+</span>
+
 </h2>
+
 
 <p>
 Santi, I hope you know how incredibly
 special you are to me.
 </p>
 
+
 <p style="margin-top:20px;">
+
 May your birthday be filled with love,
 laughter, good food, games, dinosaurs,
 family, and everything that makes you happy.
+
 </p>
+
 
 <p
 class="script"
 style="font-size:29px;margin-top:28px;">
+
 From your Queen to her King,
 <br>
 with all the love in the world.
 👑❤️
+
 </p>
+
 
 <button
 class="button"
-onclick="showSurprise()"
-style="background:transparent;cursor:pointer;font-family:Poppins;">
+onclick="showSurprise()">
+
 🎁 One Last Surprise
+
 </button>
 
 </div>
+
 </section>
 
 
-<!-- DRAMATIC SURPRISE -->
+<!-- FINAL SURPRISE -->
 
 <div id="surprise">
 
 <div class="surprise-content">
 
-<div class="big-heart">❤️</div>
+<div class="big-heart">
+❤️
+</div>
 
 <h2>
+
 My King,
 <br>
 I Love You.
+
 </h2>
 
+
 <p>
+
 No matter where you are,
 no matter how many kilometers
 separate us...
+
 </p>
 
+
 <p style="margin-top:18px;">
+
 my heart will always know
 where it belongs.
+
 </p>
+
 
 <p
 class="script"
 style="margin-top:25px;font-size:31px;color:#e8c982;">
+
 Happy Birthday, Santi.
 <br>
 Forever your Queen. 👑
+
 </p>
+
 
 <button
 class="button"
 onclick="closeSurprise()">
+
 ❤️ Back to our memories
+
 </button>
 
 </div>
@@ -1174,18 +1767,25 @@ onclick="closeSurprise()">
 
 <script>
 
-/* STARS */
+
+/* =========================
+   STARS
+========================= */
 
 const stars = document.getElementById("stars");
 
 for(let i = 0; i < 120; i++){
 
-    const star = document.createElement("div");
+    const star =
+        document.createElement("div");
 
     star.className = "star";
 
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
 
     star.style.animationDelay =
         Math.random() * 3 + "s";
@@ -1194,53 +1794,141 @@ for(let i = 0; i < 120; i++){
 }
 
 
-/* DINOSAUR EGG */
+/* =========================
+   DINOSAUR EGG
+========================= */
 
 function hatchEgg(){
 
-    const egg = document.getElementById("egg");
-    const dino = document.getElementById("babyDino");
-    const text = document.getElementById("eggText");
+    const egg =
+        document.getElementById("egg");
+
+    const dino =
+        document.getElementById("babyDino");
+
+    const text =
+        document.getElementById("eggText");
+
 
     if(egg.classList.contains("cracked")){
         return;
     }
 
+
     egg.classList.add("shake");
+
+    text.innerHTML =
+        "Something is moving inside... 👀";
+
 
     setTimeout(() => {
 
         egg.classList.add("cracked");
 
-        createHearts(25);
+        createHearts(15);
 
-    }, 600);
+        createSparkles();
+
+        text.innerHTML =
+            "Wait... what's inside? 🥚✨";
+
+    }, 700);
+
 
     setTimeout(() => {
 
-        egg.style.display = "none";
+        egg.style.display =
+            "none";
 
-        dino.style.display = "block";
+        dino.style.display =
+            "block";
 
         text.innerHTML =
-        "A little dinosaur for my dinosaur-loving King! 🦖❤️";
+            "A little dinosaur for my dinosaur-loving King! 🦖❤️";
 
         createHearts(50);
 
-    }, 1500);
+        createSparkles();
+
+    }, 1600);
+
 }
 
 
-/* HEARTS */
+/* =========================
+   DINOSAUR SPARKLES
+========================= */
+
+function createSparkles(){
+
+    const container =
+        document.querySelector(".egg-container");
+
+
+    for(let i = 0; i < 25; i++){
+
+        const sparkle =
+            document.createElement("div");
+
+        sparkle.className =
+            "hatch-sparkle";
+
+
+        sparkle.innerHTML =
+            ["✨","⭐","💫","✦"][
+                Math.floor(
+                    Math.random() * 4
+                )
+            ];
+
+
+        sparkle.style.left =
+            "50%";
+
+        sparkle.style.top =
+            "50%";
+
+
+        sparkle.style.setProperty(
+            "--x",
+            Math.random() * 300 - 150
+        );
+
+
+        sparkle.style.setProperty(
+            "--y",
+            Math.random() * 300 - 150
+        );
+
+
+        container.appendChild(sparkle);
+
+
+        setTimeout(() => {
+
+            sparkle.remove();
+
+        }, 1500);
+
+    }
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
 
 function createHearts(amount){
 
     for(let i = 0; i < amount; i++){
 
         const heart =
-        document.createElement("div");
+            document.createElement("div");
 
-        heart.className = "heart";
+        heart.className =
+            "heart";
+
 
         const heartTypes = [
             "❤️",
@@ -1251,52 +1939,79 @@ function createHearts(amount){
             "🤍"
         ];
 
+
         heart.innerHTML =
-        heartTypes[
-            Math.floor(
-                Math.random() *
-                heartTypes.length
-            )
-        ];
+            heartTypes[
+                Math.floor(
+                    Math.random() *
+                    heartTypes.length
+                )
+            ];
+
 
         heart.style.left =
             Math.random() * 100 + "vw";
 
+
         heart.style.animationDuration =
             (4 + Math.random() * 4) + "s";
+
 
         heart.style.fontSize =
             (15 + Math.random() * 25) + "px";
 
+
         document.body.appendChild(heart);
 
+
         setTimeout(() => {
+
             heart.remove();
+
         }, 8000);
+
     }
+
 }
 
 
-/* COUNTDOWN */
+/* =========================
+   COUNTDOWN
+========================= */
 
 const birthday =
-    new Date("August 22, 2026 00:00:00").getTime();
+    new Date(
+        "August 22, 2026 00:00:00"
+    ).getTime();
+
 
 function updateCountdown(){
 
-    const now = new Date().getTime();
+    const now =
+        new Date().getTime();
 
-    const difference = birthday - now;
+
+    const difference =
+        birthday - now;
+
 
     if(difference <= 0){
 
-        document.getElementById("days").innerText = "00";
-        document.getElementById("hours").innerText = "00";
-        document.getElementById("minutes").innerText = "00";
-        document.getElementById("seconds").innerText = "00";
+        document.getElementById("days").innerText =
+            "00";
+
+        document.getElementById("hours").innerText =
+            "00";
+
+        document.getElementById("minutes").innerText =
+            "00";
+
+        document.getElementById("seconds").innerText =
+            "00";
 
         return;
     }
+
 
     const days =
         Math.floor(
@@ -1304,11 +2019,13 @@ function updateCountdown(){
             (1000 * 60 * 60 * 24)
         );
 
+
     const hours =
         Math.floor(
             (difference /
             (1000 * 60 * 60)) % 24
         );
+
 
     const minutes =
         Math.floor(
@@ -1316,48 +2033,65 @@ function updateCountdown(){
             (1000 * 60)) % 60
         );
 
+
     const seconds =
         Math.floor(
             (difference / 1000) % 60
         );
 
+
     document.getElementById("days").innerText =
         String(days).padStart(2,"0");
+
 
     document.getElementById("hours").innerText =
         String(hours).padStart(2,"0");
 
+
     document.getElementById("minutes").innerText =
         String(minutes).padStart(2,"0");
 
+
     document.getElementById("seconds").innerText =
         String(seconds).padStart(2,"0");
+
 }
+
 
 updateCountdown();
 
-setInterval(updateCountdown,1000);
+setInterval(
+    updateCountdown,
+    1000
+);
 
 
-/* FINAL SURPRISE */
+/* =========================
+   FINAL SURPRISE
+========================= */
 
 function showSurprise(){
 
     const surprise =
         document.getElementById("surprise");
 
-    surprise.style.display = "flex";
+    surprise.style.display =
+        "flex";
 
     createHearts(120);
+
 }
+
 
 function closeSurprise(){
 
     document.getElementById("surprise").style.display =
         "none";
+
 }
 
 </script>
+
 
 </body>
 </html>
