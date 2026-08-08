@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Birthday, Mi Amor ❤️</title>
+<title>Happy Birthday, My King ❤️</title>
 
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
 
 * {
@@ -22,58 +21,20 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
+    color: #fff;
     background:
         radial-gradient(circle at 20% 20%, rgba(255,255,255,.08), transparent 25%),
         radial-gradient(circle at 80% 70%, rgba(255,255,255,.06), transparent 25%),
         #17131d;
-
-    color: white;
     overflow-x: hidden;
 }
-
-/* =========================
-   STARS
-========================= */
-
-.stars {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.star {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: white;
-    border-radius: 50%;
-    opacity: .5;
-    animation: twinkle 3s infinite alternate;
-}
-
-@keyframes twinkle {
-    from {
-        opacity: .2;
-    }
-
-    to {
-        opacity: .9;
-    }
-}
-
-/* =========================
-   GENERAL
-========================= */
 
 section {
     min-height: 100vh;
     padding: 80px 20px;
-
     display: flex;
-    justify-content: center;
     align-items: center;
-
+    justify-content: center;
     position: relative;
     z-index: 1;
 }
@@ -93,1037 +54,907 @@ section {
     color: #e8c982;
 }
 
-/* =========================
-   HERO
-========================= */
+.small-gold {
+    color: #e8c982;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+/* STARS */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    opacity: .5;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: .15; }
+    to { opacity: .9; }
+}
+
+/* HERO */
 
 .hero {
-    min-height: 100vh;
+    text-align: center;
 }
 
 .crown {
-    font-size: 60px;
-
-    animation: floating 3s ease-in-out infinite;
+    font-size: 65px;
+    animation: float 3s ease-in-out infinite;
 }
 
-@keyframes floating {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
-
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
 }
 
 .hero h2 {
-
-    font-size: 18px;
+    font-size: 17px;
     letter-spacing: 5px;
-    text-transform: uppercase;
     font-weight: 300;
-
+    text-transform: uppercase;
 }
 
 .hero h1 {
-
     font-family: 'Cormorant Garamond', serif;
-
-    font-size: clamp(55px, 10vw, 110px);
-
+    font-size: clamp(58px, 11vw, 115px);
     font-weight: 500;
-
     line-height: .9;
-
     margin: 25px 0;
-
 }
 
 .date {
-
-    margin-top: 30px;
-
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 25px;
-
     color: #e8c982;
-
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
 }
 
 .scroll {
-
-    margin-top: 70px;
-
+    margin-top: 65px;
+    opacity: .55;
     font-size: 12px;
-
     letter-spacing: 3px;
-
-    opacity: .6;
-
     animation: bounce 2s infinite;
-
 }
 
 @keyframes bounce {
-
-    50% {
-        transform: translateY(8px);
-    }
-
+    50% { transform: translateY(8px); }
 }
 
-/* =========================
-   DINOSAUR EGG
-========================= */
+/* MUSIC */
+
+.music-card {
+    max-width: 600px;
+    margin: 35px auto 0;
+    padding: 35px 25px;
+    border: 1px solid rgba(232,201,130,.25);
+    border-radius: 22px;
+    background: rgba(255,255,255,.04);
+    backdrop-filter: blur(10px);
+}
+
+.music-icon {
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+.music-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+.music-card p {
+    opacity: .7;
+    font-size: 14px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 28px;
+    border: 1px solid #e8c982;
+    border-radius: 50px;
+    color: #e8c982;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.button:hover {
+    background: #e8c982;
+    color: #17131d;
+}
+
+/* DINOSAUR */
 
 .dino-section {
-
-    background:
-        radial-gradient(circle at center,
-        rgba(69,100,70,.35),
-        transparent 45%);
-
+    background: radial-gradient(circle at center, rgba(69,100,70,.35), transparent 48%);
 }
 
 .dino-title {
-
     font-family: 'Cormorant Garamond', serif;
-
-    font-size: clamp(40px, 7vw, 70px);
-
-    margin-bottom: 20px;
-
+    font-size: clamp(42px, 7vw, 72px);
+    margin: 15px 0;
 }
 
 .egg {
-
-    width: 150px;
-    height: 190px;
-
+    width: 155px;
+    height: 195px;
+    margin: 45px auto 25px;
     background:
         radial-gradient(circle at 30% 30%, #eee1bd 4px, transparent 5px),
         radial-gradient(circle at 70% 60%, #d8c697 5px, transparent 6px),
         radial-gradient(circle at 40% 75%, #cbb982 4px, transparent 5px),
         #d7c596;
-
     border-radius: 50% 50% 45% 45%;
-
-    margin: 45px auto;
-
-    position: relative;
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.4);
-
+    box-shadow: 0 20px 60px rgba(0,0,0,.45);
     cursor: pointer;
-
+    position: relative;
     animation: eggFloat 3s ease-in-out infinite;
-
 }
 
 @keyframes eggFloat {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
-.egg.crack {
-
-    animation: shake .7s;
-
+.egg.shake {
+    animation: shake .7s ease-in-out;
 }
 
 @keyframes shake {
-
-    0%,100% {
-        transform: rotate(0);
-    }
-
-    25% {
-        transform: rotate(-7deg);
-    }
-
-    75% {
-        transform: rotate(7deg);
-    }
-
+    0%,100% { transform: rotate(0); }
+    20% { transform: rotate(-8deg); }
+    40% { transform: rotate(8deg); }
+    60% { transform: rotate(-8deg); }
+    80% { transform: rotate(8deg); }
 }
 
-.crack-line {
-
+.crack {
     position: absolute;
-
-    width: 100px;
-    height: 30px;
-
+    width: 105px;
+    height: 40px;
     border-bottom: 5px solid #594b36;
-
-    transform: rotate(-10deg);
-
-    top: 85px;
+    top: 82px;
     left: 25px;
-
+    transform: rotate(-10deg);
     opacity: 0;
-
 }
 
-.egg.crack .crack-line {
-
+.egg.cracked .crack {
     opacity: 1;
-
 }
 
 .dino {
-
-    font-size: 100px;
-
     display: none;
-
+    font-size: 110px;
     animation: dinoAppear 1s forwards;
-
 }
 
 @keyframes dinoAppear {
-
     from {
-
-        transform: scale(0);
-
+        transform: scale(0) rotate(-20deg);
         opacity: 0;
-
     }
-
     to {
-
-        transform: scale(1);
-
+        transform: scale(1) rotate(0);
         opacity: 1;
-
     }
-
 }
 
-/* =========================
-   GIFT
-========================= */
+/* KING & QUEEN */
 
-.gift-section {
-
-    background: rgba(255,255,255,.025);
-
+.royal {
+    background:
+        radial-gradient(circle at 50% 20%, rgba(232,201,130,.12), transparent 35%);
 }
 
-.gift {
-
-    width: 170px;
-    height: 140px;
-
-    margin: 50px auto 25px;
-
-    position: relative;
-
-    cursor: pointer;
-
-    transition: transform .4s;
-
+.royal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(45px, 8vw, 75px);
+    margin: 15px 0;
 }
 
-.gift:hover {
-
-    transform: scale(1.08);
-
+.royal-box {
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 45px 25px;
+    border: 1px solid rgba(232,201,130,.3);
+    border-radius: 25px;
+    background: rgba(255,255,255,.035);
 }
 
-.gift-box {
-
-    position: absolute;
-
-    bottom: 0;
-
-    width: 170px;
-    height: 110px;
-
-    background: #8e4054;
-
-    border-radius: 5px;
-
+.kingqueen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    flex-wrap: wrap;
 }
 
-.gift-lid {
-
-    position: absolute;
-
-    top: 10px;
-    left: -8px;
-
-    width: 186px;
-    height: 35px;
-
-    background: #a94e63;
-
-    border-radius: 5px;
-
-    z-index: 3;
-
-    transition: .8s;
-
+.person {
+    min-width: 180px;
 }
 
-.ribbon {
-
-    position: absolute;
-
-    left: 70px;
-
-    bottom: 0;
-
-    width: 30px;
-    height: 140px;
-
-    background: #e8c982;
-
-    z-index: 2;
-
+.person-icon {
+    font-size: 65px;
 }
 
-.bow {
-
-    position: absolute;
-
-    top: -20px;
-
-    left: 55px;
-
-    font-size: 55px;
-
-    z-index: 4;
-
+.person h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 35px;
+    color: #e8c982;
 }
 
-.gift.open .gift-lid {
-
-    transform:
-        translateY(-90px)
-        rotate(-8deg);
-
+.heart-between {
+    font-size: 40px;
 }
 
-/* =========================
-   LOVE LETTER
-========================= */
+/* ARGENTINA */
+
+.argentina {
+    margin-top: 35px;
+    padding: 20px;
+    border-radius: 15px;
+    background: linear-gradient(
+        to bottom,
+        rgba(116,194,229,.15),
+        rgba(255,255,255,.05),
+        rgba(116,194,229,.15)
+    );
+}
+
+.argentina p {
+    margin-top: 8px;
+    opacity: .75;
+}
+
+/* STORY */
+
+.story-card {
+    max-width: 650px;
+    margin: 35px auto;
+    padding: 40px 25px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.story-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 45px;
+    color: #e8c982;
+    margin: 12px 0;
+}
+
+/* COUNTDOWN */
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+.time-box {
+    padding: 20px 10px;
+    border-radius: 15px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(232,201,130,.2);
+}
+
+.time-box span {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    color: #e8c982;
+    font-size: 42px;
+}
+
+.time-box small {
+    opacity: .65;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* LETTER */
 
 .letter {
-
-    background: #f5ead7;
-
-    color: #49363a;
-
-    padding: 55px;
-
-    border-radius: 5px;
-
-    max-width: 700px;
-
+    max-width: 720px;
     margin: auto;
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.3);
-
-    position: relative;
-
+    padding: 55px;
+    background: #f5ead7;
+    color: #49363a;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.3);
     transform: rotate(-1deg);
-
-}
-
-.letter:before {
-
-    content: "♡";
-
-    position: absolute;
-
-    top: 20px;
-    right: 25px;
-
-    font-size: 30px;
-
-    color: #a94e63;
-
+    text-align: left;
 }
 
 .letter h2 {
-
     font-family: 'Cormorant Garamond', serif;
-
     font-size: 45px;
-
     margin-bottom: 25px;
-
+    text-align: center;
 }
 
 .letter p {
-
     font-family: 'Cormorant Garamond', serif;
-
     font-size: 21px;
-
     line-height: 1.8;
-
     margin-bottom: 18px;
-
 }
 
 .signature {
-
-    margin-top: 30px;
-
-    font-size: 27px !important;
-
     color: #8e4054;
-
+    font-size: 28px !important;
+    text-align: right;
 }
 
-/* =========================
-   PHOTOS
-========================= */
+/* GALLERY */
 
 .gallery {
-
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
     margin-top: 40px;
-
 }
 
 .photo {
-
     aspect-ratio: 1 / 1;
-
-    border-radius: 12px;
-
+    border-radius: 15px;
     overflow: hidden;
-
     background: #29232d;
-
-    border:
-        1px solid rgba(255,255,255,.15);
-
+    border: 1px solid rgba(255,255,255,.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
 }
 
 .photo img {
-
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
-    transition:
-        transform .5s;
-
+    display: block;
+    transition: transform .5s;
 }
 
 .photo:hover img {
-
     transform: scale(1.08);
-
 }
 
-/* =========================
-   FACTS
-========================= */
+/* FACTS */
 
 .facts {
-
     display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
+    grid-template-columns: repeat(2,1fr);
     gap: 20px;
-
     margin-top: 40px;
-
 }
 
 .fact {
-
     padding: 30px;
-
-    background:
-        rgba(255,255,255,.05);
-
-    border:
-        1px solid rgba(232,201,130,.2);
-
-    border-radius: 15px;
-
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(232,201,130,.2);
+    border-radius: 18px;
 }
 
 .fact-icon {
-
-    font-size: 35px;
-
-    margin-bottom: 12px;
-
+    font-size: 38px;
+    margin-bottom: 10px;
 }
 
 .fact h3 {
-
     color: #e8c982;
-
     margin-bottom: 8px;
-
 }
 
 .fact p {
-
+    opacity: .75;
     font-size: 14px;
-
     line-height: 1.7;
-
-    opacity: .8;
-
 }
 
-/* =========================
-   DINOSAUR MESSAGE
-========================= */
+/* FINAL */
 
-.dinosaur-message {
-
-    background:
-        linear-gradient(
-            rgba(23,19,29,.85),
-            rgba(23,19,29,.95)
-        );
-
+.final {
+    min-height: 100vh;
 }
-
-.big-dino {
-
-    font-size: 110px;
-
-    animation:
-        dinoWalk 4s ease-in-out infinite;
-
-}
-
-@keyframes dinoWalk {
-
-    0%,100% {
-
-        transform:
-            translateX(-15px);
-
-    }
-
-    50% {
-
-        transform:
-            translateX(15px);
-
-    }
-
-}
-
-/* =========================
-   FINAL
-========================= */
 
 .final-heart {
-
     font-size: 90px;
-
-    animation:
-        heartbeat 1.5s infinite;
-
+    animation: heartbeat 1.4s infinite;
 }
 
 @keyframes heartbeat {
-
-    0%,100% {
-
-        transform: scale(1);
-
-    }
-
-    50% {
-
-        transform: scale(1.15);
-
-    }
-
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
 }
 
 .final h2 {
-
-    font-family:
-        'Cormorant Garamond',
-        serif;
-
-    font-size:
-        clamp(45px, 8vw, 80px);
-
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 85px);
     font-weight: 500;
-
     margin: 20px 0;
-
 }
 
 .final p {
-
     max-width: 650px;
-
     margin: auto;
-
     line-height: 1.8;
-
     opacity: .8;
-
 }
 
-button {
+/* SURPRISE */
 
-    margin-top: 35px;
+#surprise {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #09070d;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
 
-    padding: 15px 30px;
+.surprise-content {
+    text-align: center;
+    max-width: 700px;
+    animation: reveal 1.5s ease forwards;
+}
 
-    border:
-        1px solid #e8c982;
+@keyframes reveal {
+    from {
+        transform: scale(.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
-    background: transparent;
+.surprise-content .big-heart {
+    font-size: 100px;
+}
 
+.surprise-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(45px,8vw,80px);
     color: #e8c982;
-
-    border-radius: 50px;
-
-    font-family: 'Poppins';
-
-    cursor: pointer;
-
-    transition: .3s;
-
+    margin: 20px 0;
 }
 
-button:hover {
-
-    background: #e8c982;
-
-    color: #17131d;
-
+.surprise-content p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    line-height: 1.7;
 }
 
-/* =========================
-   FLOATING HEARTS
-========================= */
+/* HEARTS */
 
 .heart {
-
     position: fixed;
-
     bottom: -30px;
-
-    font-size: 20px;
-
     pointer-events: none;
-
-    z-index: 20;
-
-    animation:
-        rise 6s linear forwards;
-
+    z-index: 150;
+    animation: rise 6s linear forwards;
 }
 
 @keyframes rise {
-
     0% {
-
-        transform:
-            translateY(0)
-            rotate(0);
-
+        transform: translateY(0) rotate(0);
         opacity: 0;
-
     }
-
-    20% {
-
-        opacity: 1;
-
-    }
-
+    20% { opacity: 1; }
     100% {
-
-        transform:
-            translateY(-110vh)
-            rotate(360deg);
-
+        transform: translateY(-110vh) rotate(360deg);
         opacity: 0;
-
     }
-
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:700px) {
 
+    section {
+        padding: 65px 16px;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
     .gallery {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
+        grid-template-columns: repeat(2,1fr);
+        gap: 10px;
     }
 
     .facts {
-
         grid-template-columns: 1fr;
+    }
 
+    .countdown {
+        grid-template-columns: repeat(2,1fr);
     }
 
     .letter {
-
         padding: 30px 22px;
-
+        transform: none;
     }
 
     .letter p {
-
         font-size: 19px;
-
     }
 
+    .kingqueen {
+        gap: 10px;
+    }
+
+    .heart-between {
+        width: 100%;
+    }
+
+    .royal-box {
+        padding: 30px 15px;
+    }
 }
-
 </style>
-
 </head>
 
 <body>
 
-
-<!-- STARS -->
-
 <div class="stars" id="stars"></div>
 
-
-<!-- =========================
-     FIRST SCREEN
-========================= -->
-
+<!-- HERO -->
 <section class="hero">
-
 <div class="content">
 
-<div class="crown">
-👑
-</div>
+<div class="crown">👑</div>
 
-<h2>
-For My King
-</h2>
+<h2>For My King</h2>
 
 <h1>
-
 Happy Birthday,
-
 <br>
-
-<span class="gold">
-Santi
-</span>
-
+<span class="gold">Santi</span>
 </h1>
 
-<div class="date">
+<div class="date">August 22, 2026</div>
 
-August 22, 2026
-
-</div>
-
-<p
-class="script"
-style="font-size:25px;margin-top:25px;">
-
+<p class="script" style="font-size:28px;margin-top:25px;">
 Mi amor ❤️
-
 </p>
 
-<div class="scroll">
-
-SCROLL DOWN ↓
+<div class="scroll">SCROLL DOWN ↓</div>
 
 </div>
-
-</div>
-
 </section>
 
 
-<!-- =========================
-     DINOSAUR EGG
-========================= -->
+<!-- SONG -->
+<section>
+<div class="content">
 
+<p class="small-gold">Our song</p>
+
+<h2 class="script" style="font-size:58px;">
+A song for us ❤️
+</h2>
+
+<div class="music-card">
+
+<div class="music-icon">🎵</div>
+
+<h3>No Matter Where You Are</h3>
+
+<p>
+Wedding Version
+</p>
+
+<p style="margin-top:12px;">
+Because no matter how far apart we are,
+some songs just feel like us.
+</p>
+
+<a
+class="button"
+href="https://www.youtube.com/watch?v=Thm63H62_1w"
+target="_blank"
+rel="noopener">
+🎵 Play Our Song
+</a>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- DINOSAUR -->
 <section class="dino-section">
 
 <div class="content">
 
-<p class="gold">
-
-A little surprise is waiting...
-
-</p>
+<p class="small-gold">A prehistoric surprise</p>
 
 <h2 class="dino-title">
-
 Something prehistoric
-is about to happen 🦖
-
+<br>
+is waiting for you 🦖
 </h2>
 
 <p>
-
-Because I know how much you love dinosaurs...
-
+Because I know how much my King loves dinosaurs.
 </p>
-
 
 <div
 class="egg"
 id="egg"
 onclick="hatchEgg()">
 
-<div class="crack-line"></div>
+<div class="crack"></div>
 
 </div>
 
-
-<div
-class="dino"
-id="babyDino">
-
-🦖
-
-</div>
-
+<div class="dino" id="babyDino">🦖</div>
 
 <p
 id="eggText"
 class="script"
 style="font-size:28px;">
-
 Tap the egg... 🥚
-
 </p>
 
 </div>
-
 </section>
 
 
-<!-- =========================
-     GIFT
-========================= -->
-
-<section class="gift-section">
+<!-- KING & QUEEN -->
+<section class="royal">
 
 <div class="content">
 
-<p class="gold">
+<p class="small-gold">Our little kingdom</p>
 
-For my favorite person...
-
-</p>
-
-<h2
-class="script"
-style="font-size:50px;">
-
-I made this just for you.
-
+<h2 class="royal-title">
+King & Queen 👑
 </h2>
 
+<div class="royal-box">
 
-<div
-class="gift"
-onclick="openGift()">
+<div class="kingqueen">
 
-<div class="bow">
+<div class="person">
 
-🎀
+<div class="person-icon">👑</div>
 
-</div>
+<h3>Santi</h3>
 
-<div class="gift-lid"></div>
-
-<div class="gift-box"></div>
-
-<div class="ribbon"></div>
+<p>My King</p>
 
 </div>
 
+<div class="heart-between">❤️</div>
 
-<p
-class="script"
-style="font-size:25px;">
+<div class="person">
 
-🎁 Open your gift
+<div class="person-icon">👸</div>
 
+<h3>Your Queen</h3>
+
+<p>Always yours</p>
+
+</div>
+
+</div>
+
+<div class="argentina">
+
+🇦🇷
+
+<p>
+A Queen in one place,
+a King in Argentina,
+but one heart between us.
 </p>
 
 </div>
 
+</div>
+
+</div>
 </section>
 
 
-<!-- =========================
-     LOVE LETTER
-========================= -->
+<!-- OUR STORY -->
+<section>
 
+<div class="content">
+
+<p class="small-gold">Our story</p>
+
+<h2 class="script" style="font-size:60px;">
+Where our story began ❤️
+</h2>
+
+<div class="story-card">
+
+<p>Our beginning</p>
+
+<div class="story-date">
+November 30, 2025
+</div>
+
+<p>
+The day two hearts decided to start
+writing their own little story.
+</p>
+
+<p class="script" style="font-size:27px;margin-top:20px;">
+And I hope this is only the beginning
+of many chapters together.
+</p>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- COUNTDOWN -->
+<section>
+
+<div class="content">
+
+<p class="small-gold">Counting down to your special day</p>
+
+<h2 class="script" style="font-size:60px;">
+Your Birthday 🎂
+</h2>
+
+<div class="countdown">
+
+<div class="time-box">
+<span id="days">00</span>
+<small>Days</small>
+</div>
+
+<div class="time-box">
+<span id="hours">00</span>
+<small>Hours</small>
+</div>
+
+<div class="time-box">
+<span id="minutes">00</span>
+<small>Minutes</small>
+</div>
+
+<div class="time-box">
+<span id="seconds">00</span>
+<small>Seconds</small>
+</div>
+
+</div>
+
+<p class="script" style="font-size:25px;">
+August 22, 2026 — the day my King was born. ❤️
+</p>
+
+</div>
+</section>
+
+
+<!-- LOVE LETTER -->
 <section>
 
 <div class="content">
 
 <div class="letter">
 
-<h2>
-
-My Dearest Santi,
-
-</h2>
-
+<h2>My Dearest Santi,</h2>
 
 <p>
-
 Happy Birthday, mi amor. ❤️
-
 </p>
-
 
 <p>
-
-I wanted to make something special for you,
-something that could remind you how much
-you mean to me even when we're far away
-from each other.
-
+I wanted to make something just for you.
+Not something perfect or complicated,
+but something that carries a little piece
+of my heart.
 </p>
-
 
 <p>
-
-You are one of the sweetest and most
-understanding people I have ever known.
-
-I love the way you care, the way you listen,
-and the way you make even the smallest
-moments feel special.
-
+I love how sweet and understanding you are.
+I love how you listen, how you care,
+and how you can make me smile even when
+we are far away from each other.
 </p>
-
 
 <p>
-
-I hope you continue chasing the things
-that make you happy — whether you're
-playing your games, learning something new,
-cooking for your family, or talking about
-dinosaurs like the adorable dinosaur-loving
-person you are. 🦖
-
+I love knowing that you enjoy your games,
+your dinosaurs, and those little things
+that make you happy. And one of the things
+I find especially sweet about you is how
+you love cooking for your family.
 </p>
-
 
 <p>
-
-I hope this new year of your life brings
-you adventures, beautiful memories,
-success, good health, and all the happiness
-you deserve.
-
+You have a beautiful heart, Santi.
+I hope you never forget that.
 </p>
-
 
 <p>
-
-And even though my King is all the way
-in Argentina, please remember that your
-Queen is always cheering for you. 👑❤️
-
+I hope this birthday brings you everything
+you deserve — happiness, beautiful memories,
+new adventures, success, good food, lots of
+gaming, and maybe a few dinosaurs along
+the way. 🦖
 </p>
-
 
 <p>
-
-Distance may separate us physically,
-
-but it doesn't change how special you are
-to me.
-
+Even though you're in Argentina and I'm far
+away, I want you to remember that distance
+doesn't make you any less important to me.
 </p>
 
+<p>
+If I could be there beside you today,
+I would hold you close, look at you,
+and simply say:
+</p>
+
+<p class="script" style="font-size:30px;text-align:center;">
+"Happy Birthday, my King.
+I'm so happy you exist."
+</p>
+
+<p>
+Until the day we can celebrate together,
+I hope this little surprise reminds you
+that someone is thinking about you,
+loving you, and cheering for you.
+</p>
 
 <p class="signature">
-
 With all my love,
-
 <br>
-
 Your Queen ❤️
-
 </p>
 
 </div>
 
 </div>
-
 </section>
 
 
-<!-- =========================
-     PHOTO SECTION
-========================= -->
-
+<!-- PHOTOS -->
 <section>
 
 <div class="content">
 
-<p class="gold">
-Our memories
-</p>
+<p class="small-gold">Our memories</p>
 
-<h2
-class="script"
-style="font-size:55px;">
-
+<h2 class="script" style="font-size:60px;">
 A little piece of us ❤️
-
 </h2>
 
-<p
-style="
-margin-top:15px;
-opacity:.7;
-">
-
-Every picture holds a little piece of our story. 💕
-
+<p style="opacity:.7;margin-top:12px;">
+Every picture holds a little piece of our story.
 </p>
 
 <div class="gallery">
@@ -1167,321 +998,223 @@ Every picture holds a little piece of our story. 💕
 </div>
 
 </div>
-
 </section>
 
 
-<!-- =========================
-     THINGS ABOUT SANTI
-========================= -->
-
+<!-- THINGS ABOUT SANTI -->
 <section>
 
 <div class="content">
 
-<p class="gold">
+<p class="small-gold">Things I love about you</p>
 
-Things I love about you
-
-</p>
-
-<h2
-class="script"
-style="font-size:55px;">
-
+<h2 class="script" style="font-size:60px;">
 My favorite person ❤️
-
 </h2>
-
 
 <div class="facts">
 
-
 <div class="fact">
-
-<div class="fact-icon">
-
-🦖
-
-</div>
-
-<h3>
-
-Dinosaur Lover
-
-</h3>
-
+<div class="fact-icon">🦖</div>
+<h3>Dinosaur Lover</h3>
 <p>
-
 Because apparently dinosaurs are
 one of the most important things
 in life. 😂🦖
-
 </p>
-
 </div>
-
 
 <div class="fact">
-
-<div class="fact-icon">
-
-🎮
-
-</div>
-
-<h3>
-
-My Gamer
-
-</h3>
-
+<div class="fact-icon">🎮</div>
+<h3>My Gamer</h3>
 <p>
-
-My King can disappear into his
-PC games, but somehow I still
-love him anyway. ❤️
-
+My King can disappear into his PC games,
+but somehow I still love him anyway. ❤️
 </p>
-
 </div>
-
 
 <div class="fact">
-
-<div class="fact-icon">
-
-🍳
-
-</div>
-
-<h3>
-
-Family Cook
-
-</h3>
-
+<div class="fact-icon">🍳</div>
+<h3>Family Cook</h3>
 <p>
-
-One of the sweetest things about
-you is how you love cooking
-for your family.
-
+One of the sweetest things about you is
+how you love cooking for your family.
 </p>
-
 </div>
-
 
 <div class="fact">
-
-<div class="fact-icon">
-
-❤️
-
-</div>
-
-<h3>
-
-Sweet & Understanding
-
-</h3>
-
+<div class="fact-icon">❤️</div>
+<h3>Sweet & Understanding</h3>
 <p>
-
-Your kindness, patience and
-understanding are some of the
-things I treasure most about you.
-
+Your kindness, patience and understanding
+are some of the things I treasure most.
 </p>
-
-</div>
-
-
 </div>
 
 </div>
 
+</div>
 </section>
 
 
-<!-- =========================
-     DINOSAUR MESSAGE
-========================= -->
-
-<section class="dinosaur-message">
+<!-- DINOSAUR MESSAGE -->
+<section class="dino-section">
 
 <div class="content">
 
-<div class="big-dino">
-
+<div style="font-size:110px;">
 🦖
-
 </div>
-
 
 <h2
 class="script"
-style="
-font-size:55px;
-color:#e8c982;
-">
-
-Even dinosaurs couldn't
-survive forever...
-
+style="font-size:55px;color:#e8c982;margin-top:20px;">
+Even dinosaurs couldn't survive forever...
 </h2>
-
 
 <p
 class="script"
-style="
-font-size:30px;
-margin-top:25px;
-">
-
+style="font-size:31px;margin-top:25px;">
 but my love for you will. ❤️
-
 </p>
 
 </div>
-
 </section>
 
 
-<!-- =========================
-     FINAL
-========================= -->
-
+<!-- FINAL -->
 <section class="final">
 
 <div class="content">
 
-
-<div class="final-heart">
-
-❤️
-
-</div>
-
+<div class="final-heart">❤️</div>
 
 <h2>
-
 Happy Birthday,
-
 <br>
-
-<span class="gold">
-
-Mi Amor
-
-</span>
-
+<span class="gold">Mi Amor</span>
 </h2>
 
-
 <p>
-
 Santi, I hope you know how incredibly
 special you are to me.
-
 </p>
 
-
-<br>
-
-
-<p>
-
+<p style="margin-top:20px;">
 May your birthday be filled with love,
 laughter, good food, games, dinosaurs,
-family, and everything that makes
-you happy.
-
+family, and everything that makes you happy.
 </p>
-
 
 <p
 class="script"
-style="
-font-size:28px;
-margin-top:25px;
-">
-
+style="font-size:29px;margin-top:28px;">
 From your Queen to her King,
-
 <br>
-
 with all the love in the world.
-
 👑❤️
-
 </p>
 
-
-<button onclick="celebrate()">
-
-🎆 One Last Surprise
-
+<button
+class="button"
+onclick="showSurprise()"
+style="background:transparent;cursor:pointer;font-family:Poppins;">
+🎁 One Last Surprise
 </button>
 
+</div>
+</section>
+
+
+<!-- DRAMATIC SURPRISE -->
+
+<div id="surprise">
+
+<div class="surprise-content">
+
+<div class="big-heart">❤️</div>
+
+<h2>
+My King,
+<br>
+I Love You.
+</h2>
+
+<p>
+No matter where you are,
+no matter how many kilometers
+separate us...
+</p>
+
+<p style="margin-top:18px;">
+my heart will always know
+where it belongs.
+</p>
+
+<p
+class="script"
+style="margin-top:25px;font-size:31px;color:#e8c982;">
+Happy Birthday, Santi.
+<br>
+Forever your Queen. 👑
+</p>
+
+<button
+class="button"
+onclick="closeSurprise()">
+❤️ Back to our memories
+</button>
 
 </div>
 
-</section>
+</div>
 
 
 <script>
 
+/* STARS */
 
-/* =========================
-   CREATE STARS
-========================= */
-
-const stars =
-document.getElementById("stars");
-
+const stars = document.getElementById("stars");
 
 for(let i = 0; i < 120; i++){
 
-    const star =
-    document.createElement("div");
+    const star = document.createElement("div");
 
     star.className = "star";
 
-    star.style.left =
-    Math.random() * 100 + "%";
-
-    star.style.top =
-    Math.random() * 100 + "%";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
 
     star.style.animationDelay =
-    Math.random() * 3 + "s";
+        Math.random() * 3 + "s";
 
     stars.appendChild(star);
-
 }
 
 
-/* =========================
-   DINOSAUR EGG
-========================= */
+/* DINOSAUR EGG */
 
 function hatchEgg(){
 
-    const egg =
-    document.getElementById("egg");
+    const egg = document.getElementById("egg");
+    const dino = document.getElementById("babyDino");
+    const text = document.getElementById("eggText");
 
-    const dino =
-    document.getElementById("babyDino");
+    if(egg.classList.contains("cracked")){
+        return;
+    }
 
-    const text =
-    document.getElementById("eggText");
+    egg.classList.add("shake");
 
+    setTimeout(() => {
 
-    egg.classList.add("crack");
+        egg.classList.add("cracked");
 
+        createHearts(25);
 
-    setTimeout(function(){
+    }, 600);
+
+    setTimeout(() => {
 
         egg.style.display = "none";
 
@@ -1490,32 +1223,13 @@ function hatchEgg(){
         text.innerHTML =
         "A little dinosaur for my dinosaur-loving King! 🦖❤️";
 
-        createHearts(30);
+        createHearts(50);
 
-    }, 900);
-
+    }, 1500);
 }
 
 
-/* =========================
-   OPEN GIFT
-========================= */
-
-function openGift(){
-
-    const gift =
-    document.querySelector(".gift");
-
-    gift.classList.add("open");
-
-    createHearts(40);
-
-}
-
-
-/* =========================
-   FLOATING HEARTS
-========================= */
+/* HEARTS */
 
 function createHearts(amount){
 
@@ -1526,88 +1240,122 @@ function createHearts(amount){
 
         heart.className = "heart";
 
-
-        const hearts = [
-
+        const heartTypes = [
             "❤️",
             "💕",
             "💖",
             "💗",
             "💘",
             "🤍"
-
         ];
 
-
         heart.innerHTML =
-        hearts[
-        Math.floor(
-        Math.random() *
-        hearts.length
-        )];
-
+        heartTypes[
+            Math.floor(
+                Math.random() *
+                heartTypes.length
+            )
+        ];
 
         heart.style.left =
-        Math.random() * 100 + "vw";
-
+            Math.random() * 100 + "vw";
 
         heart.style.animationDuration =
-        (4 + Math.random() * 4) + "s";
-
+            (4 + Math.random() * 4) + "s";
 
         heart.style.fontSize =
-        (15 + Math.random() * 25) + "px";
+            (15 + Math.random() * 25) + "px";
 
-
-        document.body.appendChild(
-        heart);
-
+        document.body.appendChild(heart);
 
         setTimeout(() => {
-
             heart.remove();
-
         }, 8000);
-
     }
-
 }
 
 
-/* =========================
-   FINAL SURPRISE
-========================= */
+/* COUNTDOWN */
 
-function celebrate(){
+const birthday =
+    new Date("August 22, 2026 00:00:00").getTime();
 
-    createHearts(100);
+function updateCountdown(){
 
-    setTimeout(function(){
+    const now = new Date().getTime();
 
-        alert(
+    const difference = birthday - now;
 
-        "❤️ Happy Birthday, Santi! ❤️\n\n" +
+    if(difference <= 0){
 
-        "My King, my love, my favorite person. 👑\n\n" +
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
 
-        "I hope this little surprise made you smile.\n\n" +
+        return;
+    }
 
-        "No matter how far apart we are,\n" +
-
-        "you will always have my heart.\n\n" +
-
-        "I love you, Mi Amor. ❤️🦖\n\n" +
-
-        "— Your Queen 👑"
-
+    const days =
+        Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
         );
 
-    }, 500);
+    const hours =
+        Math.floor(
+            (difference /
+            (1000 * 60 * 60)) % 24
+        );
 
+    const minutes =
+        Math.floor(
+            (difference /
+            (1000 * 60)) % 60
+        );
+
+    const seconds =
+        Math.floor(
+            (difference / 1000) % 60
+        );
+
+    document.getElementById("days").innerText =
+        String(days).padStart(2,"0");
+
+    document.getElementById("hours").innerText =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").innerText =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").innerText =
+        String(seconds).padStart(2,"0");
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+
+/* FINAL SURPRISE */
+
+function showSurprise(){
+
+    const surprise =
+        document.getElementById("surprise");
+
+    surprise.style.display = "flex";
+
+    createHearts(120);
+}
+
+function closeSurprise(){
+
+    document.getElementById("surprise").style.display =
+        "none";
 }
 
 </script>
-
 
 </body>
 </html>
