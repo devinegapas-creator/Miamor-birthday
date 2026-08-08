@@ -670,14 +670,13 @@ Because no matter how far apart we are,
 some songs just feel like us.
 </p>
 
-<audio id="ourSong" src="No Matter Where You Are.mp3"></audio>
-
-<button
+<a
 class="button"
-onclick="toggleMusic()"
-id="musicButton">
-🎵 Play Our Song ❤️
-</button>
+href="https://www.youtube.com/watch?v=Thm63H62_1w"
+target="_blank"
+rel="noopener">
+🎵 Play Our Song
+</a>
 
 </div>
 
@@ -1192,29 +1191,7 @@ for(let i = 0; i < 120; i++){
     stars.appendChild(star);
 }
 
-    
-/* MUSIC */
 
-function toggleMusic() {
-
-    const song = document.getElementById("ourSong");
-    const button = document.getElementById("musicButton");
-
-    if (song.paused) {
-
-        song.play();
-
-        button.innerHTML = "⏸️ Pause Our Song";
-
-    } else {
-
-        song.pause();
-
-        button.innerHTML = "🎵 Play Our Song ❤️";
-
-    }
-}
-    
 /* DINOSAUR EGG */
 
 function hatchEgg(){
