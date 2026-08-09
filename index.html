@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Happy Birthday, My King ❤️</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+/* =========================
+   RESET
+========================= */
 
 * {
     box-sizing: border-box;
@@ -22,19 +28,123 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     color: #fff;
-    
-background:
-    radial-gradient(circle at 20% 20%, rgba(255,182,193,.12), transparent 25%),
-    radial-gradient(circle at 80% 70%, rgba(255,105,180,.10), transparent 25%),
-    linear-gradient(to bottom, #1a1423, #2a1b3d, #3a1f4f);
+    background:
+        radial-gradient(circle at 15% 15%, rgba(255, 182, 193, .18), transparent 25%),
+        radial-gradient(circle at 85% 60%, rgba(255, 105, 180, .12), transparent 28%),
+        linear-gradient(135deg, #160d18, #2b1528 45%, #421d3b 100%);
     overflow-x: hidden;
 }
 
+/* =========================
+   OPENING SCREEN
+========================= */
+
+#opening {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+    background:
+        radial-gradient(circle at 50% 40%, rgba(255, 154, 190, .2), transparent 30%),
+        linear-gradient(135deg, #160b16, #301329, #4a1d3d);
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+#opening.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.opening-content {
+    max-width: 600px;
+    animation: openingAppear 1.5s ease;
+}
+
+@keyframes openingAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.opening-heart {
+    font-size: 75px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.opening-small {
+    color: #e8c982;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.opening-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(52px, 10vw, 90px);
+    font-weight: 500;
+    line-height: .95;
+    margin: 18px 0;
+}
+
+.opening-title span {
+    color: #f4b6ca;
+}
+
+.opening-text {
+    opacity: .75;
+    line-height: 1.8;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   MUSIC PLAYER
+========================= */
+
+.music-control {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 500;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 220, 230, .4);
+    background: rgba(60, 20, 45, .75);
+    backdrop-filter: blur(12px);
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,.3);
+    transition: .3s;
+}
+
+.music-control:hover {
+    transform: scale(1.08);
+    background: rgba(150, 60, 100, .8);
+}
+
+/* =========================
+   GENERAL
+========================= */
+
 section {
     min-height: 100vh;
-    padding: 80px 20px;
+    padding: 90px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,7 +159,7 @@ section {
 }
 
 .script {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     font-style: italic;
 }
 
@@ -57,13 +167,16 @@ section {
     color: #e8c982;
 }
 
-.small-gold {
-    color: #e8c982;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-size: 13px;
+.pink {
+    color: #f4b6ca;
 }
 
+.small-gold {
+    color: #e8c982;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
 
 /* =========================
    STARS
@@ -88,30 +201,34 @@ section {
 
 @keyframes twinkle {
     from {
-        opacity: .15;
+        opacity: .1;
+        transform: scale(.7);
     }
 
     to {
         opacity: .9;
+        transform: scale(1.3);
     }
 }
-
 
 /* =========================
    HERO
 ========================= */
 
 .hero {
-    text-align: center;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(255, 190, 210, .14), transparent 30%);
 }
 
 .crown {
-    font-size: 65px;
+    font-size: 70px;
     animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba(232,201,130,.35));
 }
 
 @keyframes float {
-    0%,100% {
+    0%, 100% {
         transform: translateY(0);
     }
 
@@ -121,31 +238,33 @@ section {
 }
 
 .hero h2 {
-    font-size: 17px;
-    letter-spacing: 5px;
+    font-size: 16px;
+    letter-spacing: 6px;
     font-weight: 300;
     text-transform: uppercase;
+    margin-top: 15px;
 }
 
 .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: clamp(58px, 11vw, 115px);
     font-weight: 500;
-    line-height: .9;
+    line-height: .88;
     margin: 25px 0;
+    text-shadow: 0 0 35px rgba(255, 150, 190, .12);
 }
 
 .date {
     color: #e8c982;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 27px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 29px;
 }
 
 .scroll {
     margin-top: 65px;
     opacity: .55;
-    font-size: 12px;
-    letter-spacing: 3px;
+    font-size: 11px;
+    letter-spacing: 4px;
     animation: bounce 2s infinite;
 }
 
@@ -155,6 +274,23 @@ section {
     }
 }
 
+/* =========================
+   GLASS CARDS
+========================= */
+
+.music-card,
+.royal-box,
+.story-card,
+.fact,
+.time-box {
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.075),
+        rgba(255,255,255,.025)
+    );
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
 
 /* =========================
    MUSIC
@@ -162,63 +298,76 @@ section {
 
 .music-card {
     max-width: 600px;
-    margin: 35px auto 0;
-    padding: 35px 25px;
+    margin: 40px auto 0;
+    padding: 42px 25px;
     border: 1px solid rgba(232,201,130,.25);
-    border-radius: 22px;
-    background: rgba(255,255,255,.04);
-    backdrop-filter: blur(10px);
+    border-radius: 28px;
+    box-shadow: 0 20px 70px rgba(0,0,0,.25);
 }
 
 .music-icon {
-    font-size: 45px;
+    font-size: 48px;
     margin-bottom: 12px;
+    animation: musicFloat 2s ease-in-out infinite;
+}
+
+@keyframes musicFloat {
+    50% {
+        transform: translateY(-7px) rotate(3deg);
+    }
 }
 
 .music-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 34px;
-    margin-bottom: 8px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 37px;
+    margin-bottom: 10px;
 }
 
 .music-card p {
     opacity: .7;
     font-size: 14px;
+    line-height: 1.7;
 }
+
+/* =========================
+   BUTTON
+========================= */
 
 .button {
     display: inline-block;
     margin-top: 25px;
-    padding: 14px 28px;
+    padding: 14px 30px;
     border: 1px solid #e8c982;
     border-radius: 50px;
     color: #e8c982;
     text-decoration: none;
     transition: .3s;
-    background: transparent;
+    background: rgba(255,255,255,.02);
     cursor: pointer;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
 }
 
 .button:hover {
     background: #e8c982;
-    color: #17131d;
+    color: #241521;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(232,201,130,.2);
 }
 
-
 /* =========================
-   PREMIUM DINOSAUR SECTION
+   DINO SECTION
 ========================= */
 
 .dino-section {
     background:
-        radial-gradient(circle at 50% 45%, rgba(75,130,80,.25), transparent 30%),
+        radial-gradient(circle at 50% 45%, rgba(100,150,100,.18), transparent 30%),
         radial-gradient(circle at 50% 100%, rgba(232,201,130,.08), transparent 45%);
     overflow: hidden;
 }
 
 .dino-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: clamp(42px, 7vw, 72px);
     margin: 15px 0;
 }
@@ -233,9 +382,6 @@ section {
     align-items: center;
 }
 
-
-/* GLOW */
-
 .egg-glow {
     position: absolute;
     width: 240px;
@@ -247,8 +393,7 @@ section {
 }
 
 @keyframes eggGlow {
-
-    0%,100% {
+    0%, 100% {
         transform: scale(.85);
         opacity: .4;
     }
@@ -259,9 +404,6 @@ section {
     }
 }
 
-
-/* EGG */
-
 .egg {
     width: 160px;
     height: 205px;
@@ -271,7 +413,7 @@ section {
 
     background:
         radial-gradient(circle at 28% 25%,
-            rgba(255,255,255,.35) 0 3px,
+            rgba(255,255,255,.4) 0 3px,
             transparent 4px),
 
         radial-gradient(circle at 70% 30%,
@@ -279,16 +421,14 @@ section {
             transparent 6px),
 
         radial-gradient(circle at 35% 65%,
-            rgba(90,70,40,.20) 0 4px,
+            rgba(90,70,40,.2) 0 4px,
             transparent 5px),
 
         radial-gradient(circle at 75% 70%,
-            rgba(255,255,255,.20) 0 3px,
+            rgba(255,255,255,.2) 0 3px,
             transparent 4px),
 
-        linear-gradient(145deg,
-            #f1e5c2,
-            #d1bd85);
+        linear-gradient(145deg,#f1e5c2,#d1bd85);
 
     border-radius:
         50% 50% 46% 46% /
@@ -303,7 +443,6 @@ section {
 }
 
 @keyframes eggFloat {
-
     0%,100% {
         transform: translateY(0);
     }
@@ -312,9 +451,6 @@ section {
         transform: translateY(-12px);
     }
 }
-
-
-/* EGG SHADOW */
 
 .egg-container::after {
     content: "";
@@ -326,9 +462,6 @@ section {
     filter: blur(12px);
     border-radius: 50%;
 }
-
-
-/* CRACK */
 
 .crack {
     position: absolute;
@@ -368,7 +501,6 @@ section {
 }
 
 @keyframes crackGlow {
-
     0% {
         transform: scale(.8);
         opacity: 0;
@@ -385,90 +517,50 @@ section {
     }
 }
 
-
-/* SHAKE */
-
 .egg.shake {
     animation: eggShake .7s ease-in-out;
 }
 
 @keyframes eggShake {
-
-    0%,100% {
-        transform: rotate(0);
-    }
-
-    15% {
-        transform: rotate(-8deg);
-    }
-
-    30% {
-        transform: rotate(8deg);
-    }
-
-    45% {
-        transform: rotate(-10deg);
-    }
-
-    60% {
-        transform: rotate(10deg);
-    }
-
-    75% {
-        transform: rotate(-5deg);
-    }
+    0%,100% { transform: rotate(0); }
+    15% { transform: rotate(-8deg); }
+    30% { transform: rotate(8deg); }
+    45% { transform: rotate(-10deg); }
+    60% { transform: rotate(10deg); }
+    75% { transform: rotate(-5deg); }
 }
-
-
-/* DINOSAUR */
 
 .dino {
     display: none;
     position: relative;
     z-index: 10;
     font-size: 145px;
-
     filter:
         drop-shadow(0 0 18px rgba(120,180,100,.65))
         drop-shadow(0 20px 30px rgba(0,0,0,.5));
-
-    animation:
-        dinoAppear 1.2s cubic-bezier(.17,.89,.32,1.49)
-        forwards;
+    animation: dinoAppear 1.2s cubic-bezier(.17,.89,.32,1.49) forwards;
 }
 
 @keyframes dinoAppear {
-
     0% {
-        transform:
-            scale(0)
-            translateY(80px)
-            rotate(-20deg);
-
+        transform: scale(0) translateY(80px) rotate(-20deg);
         opacity: 0;
     }
 
     60% {
-        transform:
-            scale(1.2)
-            translateY(-15px)
-            rotate(8deg);
-
+        transform: scale(1.2) translateY(-15px) rotate(8deg);
         opacity: 1;
     }
 
     100% {
-        transform:
-            scale(1)
-            translateY(0)
-            rotate(0);
-
+        transform: scale(1) translateY(0) rotate(0);
         opacity: 1;
     }
 }
 
-
-/* SPARKLES */
+/* =========================
+   SPARKLES
+========================= */
 
 .hatch-sparkle {
     position: absolute;
@@ -480,12 +572,8 @@ section {
 }
 
 @keyframes sparkleBurst {
-
     0% {
-        transform:
-            translate(0,0)
-            scale(.2);
-
+        transform: translate(0,0) scale(.2);
         opacity: 0;
     }
 
@@ -500,27 +588,21 @@ section {
                 calc(var(--y) * 1px)
             )
             scale(1.4);
-
         opacity: 0;
     }
 }
 
-
 /* =========================
-   KING & QUEEN
+   ROYAL
 ========================= */
 
 .royal {
     background:
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(232,201,130,.12),
-            transparent 35%
-        );
+        radial-gradient(circle at 50% 20%, rgba(232,201,130,.12), transparent 35%);
 }
 
 .royal-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: clamp(45px, 8vw, 75px);
     margin: 15px 0;
 }
@@ -530,8 +612,7 @@ section {
     margin: 40px auto;
     padding: 45px 25px;
     border: 1px solid rgba(232,201,130,.3);
-    border-radius: 25px;
-    background: rgba(255,255,255,.035);
+    border-radius: 28px;
 }
 
 .kingqueen {
@@ -551,20 +632,20 @@ section {
 }
 
 .person h3 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 35px;
     color: #e8c982;
 }
 
 .heart-between {
     font-size: 40px;
+    animation: heartbeat 1.4s infinite;
 }
 
 .argentina {
     margin-top: 35px;
     padding: 20px;
     border-radius: 15px;
-
     background:
         linear-gradient(
             to bottom,
@@ -577,8 +658,8 @@ section {
 .argentina p {
     margin-top: 8px;
     opacity: .75;
+    line-height: 1.7;
 }
-
 
 /* =========================
    STORY
@@ -587,19 +668,17 @@ section {
 .story-card {
     max-width: 650px;
     margin: 35px auto;
-    padding: 40px 25px;
-    border-radius: 20px;
-    background: rgba(255,255,255,.045);
+    padding: 45px 25px;
+    border-radius: 24px;
     border: 1px solid rgba(255,255,255,.1);
 }
 
 .story-date {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 45px;
     color: #e8c982;
     margin: 12px 0;
 }
-
 
 /* =========================
    COUNTDOWN
@@ -614,26 +693,24 @@ section {
 }
 
 .time-box {
-    padding: 20px 10px;
-    border-radius: 15px;
-    background: rgba(255,255,255,.05);
+    padding: 22px 10px;
+    border-radius: 18px;
     border: 1px solid rgba(232,201,130,.2);
 }
 
 .time-box span {
     display: block;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     color: #e8c982;
-    font-size: 42px;
+    font-size: 45px;
 }
 
 .time-box small {
     opacity: .65;
-    font-size: 11px;
+    font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
-
 
 /* =========================
    LOVE LETTER
@@ -643,23 +720,34 @@ section {
     max-width: 720px;
     margin: auto;
     padding: 55px;
-    background: #f5ead7;
+    background:
+        linear-gradient(135deg, #f7e9df, #f4dfd6);
     color: #49363a;
-    border-radius: 6px;
+    border-radius: 7px;
     box-shadow: 0 20px 60px rgba(0,0,0,.3);
     transform: rotate(-1deg);
     text-align: left;
+    position: relative;
+}
+
+.letter::before {
+    content: "♥";
+    position: absolute;
+    top: 18px;
+    right: 25px;
+    color: #c47b91;
+    font-size: 20px;
 }
 
 .letter h2 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 45px;
     margin-bottom: 25px;
     text-align: center;
 }
 
 .letter p {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 21px;
     line-height: 1.8;
     margin-bottom: 18px;
@@ -670,7 +758,6 @@ section {
     font-size: 28px !important;
     text-align: right;
 }
-
 
 /* =========================
    GALLERY
@@ -685,11 +772,26 @@ section {
 
 .photo {
     aspect-ratio: 1 / 1;
-    border-radius: 15px;
+    border-radius: 18px;
     overflow: hidden;
     background: #29232d;
     border: 1px solid rgba(255,255,255,.15);
     box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    position: relative;
+}
+
+.photo::after {
+    content: "♥";
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    opacity: 0;
+    transition: .3s;
+    color: white;
+}
+
+.photo:hover::after {
+    opacity: .8;
 }
 
 .photo img {
@@ -704,7 +806,6 @@ section {
     transform: scale(1.08);
 }
 
-
 /* =========================
    FACTS
 ========================= */
@@ -718,9 +819,14 @@ section {
 
 .fact {
     padding: 30px;
-    background: rgba(255,255,255,.05);
     border: 1px solid rgba(232,201,130,.2);
-    border-radius: 18px;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.fact:hover {
+    transform: translateY(-5px);
+    border-color: rgba(232,201,130,.4);
 }
 
 .fact-icon {
@@ -731,6 +837,8 @@ section {
 .fact h3 {
     color: #e8c982;
     margin-bottom: 8px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 27px;
 }
 
 .fact p {
@@ -739,6 +847,13 @@ section {
     line-height: 1.7;
 }
 
+/* =========================
+   FINAL DINO MESSAGE
+========================= */
+
+.final-dino {
+    min-height: 80vh;
+}
 
 /* =========================
    FINAL
@@ -746,15 +861,17 @@ section {
 
 .final {
     min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(255, 120, 170, .12), transparent 35%);
 }
 
 .final-heart {
     font-size: 90px;
     animation: heartbeat 1.4s infinite;
+    filter: drop-shadow(0 0 20px rgba(255,100,150,.4));
 }
 
 @keyframes heartbeat {
-
     0%,100% {
         transform: scale(1);
     }
@@ -765,7 +882,7 @@ section {
 }
 
 .final h2 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: clamp(48px,8vw,85px);
     font-weight: 500;
     margin: 20px 0;
@@ -778,7 +895,6 @@ section {
     opacity: .8;
 }
 
-
 /* =========================
    SURPRISE
 ========================= */
@@ -787,8 +903,10 @@ section {
     display: none;
     position: fixed;
     inset: 0;
-    background: #09070d;
-    z-index: 100;
+    background:
+        radial-gradient(circle at center, rgba(130,30,80,.35), transparent 45%),
+        #09070d;
+    z-index: 1000;
     align-items: center;
     justify-content: center;
     padding: 25px;
@@ -801,7 +919,6 @@ section {
 }
 
 @keyframes reveal {
-
     from {
         transform: scale(.7);
         opacity: 0;
@@ -815,21 +932,21 @@ section {
 
 .surprise-content .big-heart {
     font-size: 100px;
+    animation: heartbeat 1.4s infinite;
 }
 
 .surprise-content h2 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: clamp(45px,8vw,80px);
     color: #e8c982;
     margin: 20px 0;
 }
 
 .surprise-content p {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 25px;
     line-height: 1.7;
 }
-
 
 /* =========================
    FLOATING HEARTS
@@ -841,15 +958,15 @@ section {
     pointer-events: none;
     z-index: 150;
     animation: rise 6s linear forwards;
+    text-shadow: 0 0 10px rgba(255,150,190,.5);
 }
 
 @keyframes rise {
-
     0% {
         transform:
             translateY(0)
-            rotate(0);
-
+            rotate(0)
+            scale(.8);
         opacity: 0;
     }
 
@@ -860,12 +977,34 @@ section {
     100% {
         transform:
             translateY(-110vh)
-            rotate(360deg);
-
+            rotate(360deg)
+            scale(1.2);
         opacity: 0;
     }
 }
 
+/* =========================
+   PINK PETALS
+========================= */
+
+.petal {
+    position: fixed;
+    top: -30px;
+    pointer-events: none;
+    z-index: 100;
+    animation: petalFall linear forwards;
+    opacity: .75;
+}
+
+@keyframes petalFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
 
 /* =========================
    MOBILE
@@ -874,11 +1013,16 @@ section {
 @media(max-width:700px) {
 
     section {
-        padding: 65px 16px;
+        padding: 70px 16px;
     }
 
     .hero h1 {
         font-size: 65px;
+    }
+
+    .hero h2 {
+        font-size: 13px;
+        letter-spacing: 4px;
     }
 
     .gallery {
@@ -892,10 +1036,15 @@ section {
 
     .countdown {
         grid-template-columns: repeat(2,1fr);
+        gap: 10px;
+    }
+
+    .time-box span {
+        font-size: 38px;
     }
 
     .letter {
-        padding: 30px 22px;
+        padding: 35px 22px;
         transform: none;
     }
 
@@ -922,849 +1071,842 @@ section {
     .dino {
         font-size: 120px;
     }
+
+    .surprise-content p {
+        font-size: 21px;
+    }
+
+    .music-control {
+        width: 48px;
+        height: 48px;
+        right: 15px;
+        bottom: 15px;
+    }
 }
 
 </style>
-</head>
 
+</head>
 
 <body>
 
+<!-- =========================
+     OPENING
+========================= -->
+
+<div id="opening">
+
+```
+<div class="opening-content">
+
+    <div class="opening-heart">💗</div>
+
+    <div class="opening-small">
+        A little surprise for my King
+    </div>
+
+    <h1 class="opening-title">
+        Happy Birthday,
+        <br>
+        <span>Santi</span> ❤️
+    </h1>
+
+    <p class="opening-text">
+        I made this little world just for you.
+        <br>
+        Come inside, mi amor...
+    </p>
+
+    <button class="button" onclick="enterWebsite()">
+        💕 Open Your Birthday Surprise
+    </button>
+
+</div>
+```
+
+</div>
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<audio id="birthdayMusic" loop preload="auto">
+    <source src="No Matter Where You Are.mp3" type="audio/mpeg">
+</audio>
+
+<button
+ id="musicButton"
+ class="music-control"
+ onclick="toggleMusic()"
+ title="Music">
+🎵 </button>
 
 <!-- STARS -->
 
 <div class="stars" id="stars"></div>
 
-
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
+```
 <div class="content">
 
-<div class="crown">👑</div>
+    <div class="crown">👑</div>
 
-<h2>For My King</h2>
+    <h2>For My King</h2>
 
-<h1>
-Happy Birthday,
-<br>
-<span class="gold">Santi</span>
-</h1>
+    <h1>
+        Happy Birthday,
+        <br>
+        <span class="gold">Santi</span>
+    </h1>
 
-<div class="date">
-August 22, 2026
+    <div class="date">
+        August 22, 2026
+    </div>
+
+    <p
+        class="script"
+        style="font-size:28px;margin-top:25px;">
+        Mi amor ❤️
+    </p>
+
+    <div class="scroll">
+        SCROLL DOWN ↓
+    </div>
+
 </div>
-
-<p
-class="script"
-style="font-size:28px;margin-top:25px;">
-Mi amor ❤️
-</p>
-
-<div class="scroll">
-SCROLL DOWN ↓
-</div>
-
-</div>
+```
 
 </section>
 
-
-<!-- SONG -->
+<!-- =========================
+     SONG
+========================= -->
 
 <section>
 
+```
 <div class="content">
 
-<p class="small-gold">
-Our song
-</p>
+    <p class="small-gold">
+        Our song
+    </p>
 
-<h2
-class="script"
-style="font-size:58px;">
-A song for us ❤️
-</h2>
+    <h2
+        class="script"
+        style="font-size:58px;">
+        A song for us ❤️
+    </h2>
 
-<div class="music-card">
+    <div class="music-card">
 
-<div class="music-icon">
-🎵
+        <div class="music-icon">
+            🎵
+        </div>
+
+        <h3>
+            No Matter Where You Are
+        </h3>
+
+        <p>
+            Because no matter how far apart we are,
+            some songs just feel like us.
+        </p>
+
+        <a
+            class="button"
+            href="https://www.youtube.com/watch?v=Thm63H62_1w"
+            target="_blank"
+            rel="noopener">
+            🎵 Play Our Song
+        </a>
+
+    </div>
+
 </div>
-
-<h3>
-No Matter Where You Are
-</h3>
-
-
-<p style="margin-top:12px;">
-Because no matter how far apart we are,
-some songs just feel like us.
-</p>
-
-<a
-class="button"
-href="https://www.youtube.com/watch?v=Thm63H62_1w"
-target="_blank"
-rel="noopener">
-🎵 Play Our Song
-</a>
-
-</div>
-
-</div>
+```
 
 </section>
 
-
-<!-- DINOSAUR -->
+<!-- =========================
+     DINOSAUR
+========================= -->
 
 <section class="dino-section">
 
+```
 <div class="content">
 
-<p class="small-gold">
-A prehistoric surprise
-</p>
+    <p class="small-gold">
+        A prehistoric surprise
+    </p>
 
-<h2 class="dino-title">
+    <h2 class="dino-title">
+        Something prehistoric
+        <br>
+        is waiting for you 🦖
+    </h2>
 
-Something prehistoric
-<br>
+    <p>
+        Because I know how much my King loves dinosaurs.
+    </p>
 
-is waiting for you 🦖
+    <div class="egg-container">
 
-</h2>
+        <div class="egg-glow"></div>
 
-<p>
-Because I know how much my King loves dinosaurs.
-</p>
+        <div
+            class="egg"
+            id="egg"
+            onclick="hatchEgg()">
 
+            <div class="crack"></div>
 
-<div class="egg-container">
+        </div>
 
-<div class="egg-glow"></div>
+        <div
+            class="dino"
+            id="babyDino">
 
-<div
-class="egg"
-id="egg"
-onclick="hatchEgg()">
+            🦖
 
-<div class="crack"></div>
+        </div>
 
-</div>
+    </div>
 
+    <p
+        id="eggText"
+        class="script"
+        style="font-size:28px;">
 
-<div
-class="dino"
-id="babyDino">
+        Tap the egg... 🥚
 
-🦖
-
-</div>
-
-</div>
-
-
-<p
-id="eggText"
-class="script"
-style="font-size:28px;">
-
-Tap the egg... 🥚
-
-</p>
+    </p>
 
 </div>
+```
 
 </section>
 
-
-<!-- KING & QUEEN -->
+<!-- =========================
+     KING & QUEEN
+========================= -->
 
 <section class="royal">
 
+```
 <div class="content">
 
-<p class="small-gold">
-Our little kingdom
-</p>
+    <p class="small-gold">
+        Our little kingdom
+    </p>
 
-<h2 class="royal-title">
-King & Queen 👑
-</h2>
+    <h2 class="royal-title">
+        King & Queen 👑
+    </h2>
 
-<div class="royal-box">
+    <div class="royal-box">
 
-<div class="kingqueen">
+        <div class="kingqueen">
 
-<div class="person">
+            <div class="person">
 
-<div class="person-icon">
-👑
-</div>
+                <div class="person-icon">
+                    👑
+                </div>
 
-<h3>
-Santi
-</h3>
+                <h3>
+                    Santi
+                </h3>
 
-<p>
-My King 🇦🇷
-</p>
+                <p>
+                    My King 🇦🇷
+                </p>
 
-</div>
+            </div>
 
+            <div class="heart-between">
+                ❤️
+            </div>
 
-<div class="heart-between">
-❤️
-</div>
+            <div class="person">
 
+                <div class="person-icon">
+                    👸
+                </div>
 
-<div class="person">
+                <h3>
+                    Your Queen
+                </h3>
 
-<div class="person-icon">
-👸
-</div>
+                <p>
+                    Always yours 🇵🇭
+                </p>
 
-<h3>
-Your Queen
-</h3>
+            </div>
 
-<p>
-Always yours 🇵🇭
-</p>
+        </div>
 
-</div>
+        <div class="argentina">
 
-</div>
+            🇵🇭 ❤️ 🇦🇷
 
+            <p>
+                A Queen in the Philippines,
+                a King in Argentina,
+                but one heart,
+                one love,
+                and one story between us. ❤️
+            </p>
 
-<div class="argentina">
+        </div>
 
-🇵🇭 ❤️ 🇦🇷
-
-<p>
-
-A Queen in the Philippines,
-a King in Argentina,
-but one heart,
-one love,
-and one story between us. ❤️
-
-</p>
-
-</div>
+    </div>
 
 </div>
-
-</div>
+```
 
 </section>
 
-
-<!-- OUR STORY -->
+<!-- =========================
+     OUR STORY
+========================= -->
 
 <section>
 
+```
 <div class="content">
 
-<p class="small-gold">
-Our story
-</p>
+    <p class="small-gold">
+        Our story
+    </p>
 
-<h2
-class="script"
-style="font-size:60px;">
+    <h2
+        class="script"
+        style="font-size:60px;">
 
-Where our story began ❤️
+        Where our story began ❤️
 
-</h2>
+    </h2>
 
-<div class="story-card">
+    <div class="story-card">
 
-<p>
-Our beginning
-</p>
+        <p>
+            Our beginning
+        </p>
 
-<div class="story-date">
-November 30, 2025
+        <div class="story-date">
+            November 30, 2025
+        </div>
+
+        <p>
+            The day two hearts decided to start
+            writing their own little story.
+        </p>
+
+        <p
+            class="script"
+            style="font-size:27px;margin-top:20px;">
+
+            And I hope this is only the beginning
+            of many chapters together.
+
+        </p>
+
+    </div>
+
 </div>
-
-<p>
-The day two hearts decided to start
-writing their own little story.
-</p>
-
-<p
-class="script"
-style="font-size:27px;margin-top:20px;">
-
-And I hope this is only the beginning
-of many chapters together.
-
-</p>
-
-</div>
-
-</div>
+```
 
 </section>
 
-
-<!-- COUNTDOWN -->
+<!-- =========================
+     COUNTDOWN
+========================= -->
 
 <section>
 
+```
 <div class="content">
 
-<p class="small-gold">
-Counting down to your special day
-</p>
+    <p class="small-gold">
+        Counting down to your special day
+    </p>
 
-<h2
-class="script"
-style="font-size:60px;">
+    <h2
+        class="script"
+        style="font-size:60px;">
 
-Your Birthday 🎂
+        Your Birthday 🎂
 
-</h2>
+    </h2>
 
+    <div class="countdown">
 
-<div class="countdown">
+        <div class="time-box">
+            <span id="days">00</span>
+            <small>Days</small>
+        </div>
 
+        <div class="time-box">
+            <span id="hours">00</span>
+            <small>Hours</small>
+        </div>
 
-<div class="time-box">
+        <div class="time-box">
+            <span id="minutes">00</span>
+            <small>Minutes</small>
+        </div>
 
-<span id="days">
-00
-</span>
+        <div class="time-box">
+            <span id="seconds">00</span>
+            <small>Seconds</small>
+        </div>
 
-<small>
-Days
-</small>
+    </div>
 
-</div>
+    <p
+        class="script"
+        style="font-size:25px;">
 
+        August 22, 2026 —
+        the day my King was born. ❤️
 
-<div class="time-box">
-
-<span id="hours">
-00
-</span>
-
-<small>
-Hours
-</small>
-
-</div>
-
-
-<div class="time-box">
-
-<span id="minutes">
-00
-</span>
-
-<small>
-Minutes
-</small>
+    </p>
 
 </div>
-
-
-<div class="time-box">
-
-<span id="seconds">
-00
-</span>
-
-<small>
-Seconds
-</small>
-
-</div>
-
-
-</div>
-
-
-<p
-class="script"
-style="font-size:25px;">
-
-August 22, 2026 —
-the day my King was born. ❤️
-
-</p>
-
-</div>
+```
 
 </section>
 
-
-<!-- LOVE LETTER -->
+<!-- =========================
+     LOVE LETTER
+========================= -->
 
 <section>
 
+```
 <div class="content">
 
-<div class="letter">
+    <div class="letter">
 
-<h2>
-My Dearest Santi,
-</h2>
+        <h2>
+            My Dearest Santi,
+        </h2>
 
+        <p>
+            Happy Birthday, mi amor. ❤️
+        </p>
 
-<p>
-Happy Birthday, mi amor. ❤️
-</p>
+        <p>
+            I wanted to make something just for you.
+            Not something perfect or complicated,
+            but something that carries a little piece
+            of my heart.
+        </p>
 
+        <p>
+            I love how sweet and understanding you are.
+            I love how you listen, how you care,
+            and how you can make me smile even when
+            we are far away from each other.
+        </p>
 
-<p>
-I wanted to make something just for you.
-Not something perfect or complicated,
-but something that carries a little piece
-of my heart.
-</p>
+        <p>
+            I love knowing that you enjoy your games,
+            your dinosaurs, and those little things
+            that make you happy. And one of the things
+            I find especially sweet about you is how
+            you love cooking for your family.
+        </p>
 
+        <p>
+            You have a beautiful heart, Santi.
+            I hope you never forget that.
+        </p>
 
-<p>
-I love how sweet and understanding you are.
-I love how you listen, how you care,
-and how you can make me smile even when
-we are far away from each other.
-</p>
+        <p>
+            I hope this birthday brings you everything
+            you deserve - happiness, beautiful memories,
+            new adventures, success, good food, lots of
+            gaming, and maybe a few dinosaurs along
+            the way. 🦖
+        </p>
 
+        <p>
+            Even though you're in Argentina and I'm far
+            away, I want you to remember that distance
+            doesn't make you any less important to me.
+        </p>
 
-<p>
-I love knowing that you enjoy your games,
-your dinosaurs, and those little things
-that make you happy. And one of the things
-I find especially sweet about you is how
-you love cooking for your family.
-</p>
+        <p>
+            If I could be there beside you today,
+            I would hold you close, look at you,
+            and simply say:
+        </p>
 
+        <p
+            class="script"
+            style="font-size:30px;text-align:center;">
 
-<p>
-You have a beautiful heart, Santi.
-I hope you never forget that.
-</p>
+            "Happy Birthday, my King.
+            So grateful the universe made you ✨."
 
+        </p>
 
-<p>
-I hope this birthday brings you everything
-you deserve - happiness, beautiful memories,
-new adventures, success, good food, lots of
-gaming, and maybe a few dinosaurs along
-the way. 🦖
-</p>
+        <p>
+            Until the day we can celebrate together,
+            I hope this little surprise reminds you
+            that someone is thinking about you,
+            loving you, and cheering for you.
+        </p>
 
+        <p class="signature">
 
-<p>
-Even though you're in Argentina and I'm far
-away, I want you to remember that distance
-doesn't make you any less important to me.
-</p>
+            With all my love,
+            <br>
+            Your Queen ❤️
 
+        </p>
 
-<p>
-If I could be there beside you today,
-I would hold you close, look at you,
-and simply say:
-</p>
-
-
-<p
-class="script"
-style="font-size:30px;text-align:center;">
-
-"Happy Birthday, my King.
-So grateful the universe made you ✨."
-
-</p>
-
-
-<p>
-Until the day we can celebrate together,
-I hope this little surprise reminds you
-that someone is thinking about you,
-loving you, and cheering for you.
-</p>
-
-
-<p
-class="signature">
-
-With all my love,
-<br>
-Your Queen ❤️
-
-</p>
+    </div>
 
 </div>
-
-</div>
+```
 
 </section>
 
-
-<!-- PHOTOS -->
+<!-- =========================
+     PHOTOS
+========================= -->
 
 <section>
 
+```
 <div class="content">
 
-<p class="small-gold">
-Our memories
-</p>
+    <p class="small-gold">
+        Our memories
+    </p>
 
-<h2
-class="script"
-style="font-size:60px;">
+    <h2
+        class="script"
+        style="font-size:60px;">
 
-A little piece of us ❤️
+        A little piece of us ❤️
 
-</h2>
+    </h2>
 
-<p
-style="opacity:.7;margin-top:12px;">
+    <p
+        style="opacity:.7;margin-top:12px;">
 
-Every picture holds a little piece of our story.
+        Every picture holds a little piece of our story.
 
-</p>
+    </p>
 
+    <div class="gallery">
 
-<div class="gallery">
+        <div class="photo">
+            <img src="13.jpeg" alt="Our memory">
+        </div>
 
+        <div class="photo">
+            <img src="16.jpeg" alt="Our memory">
+        </div>
 
-<div class="photo">
-<img
-src="13.jpeg"
-alt="Our memory">
-</div>
+        <div class="photo">
+            <img src="18.jpeg" alt="Our memory">
+        </div>
 
+        <div class="photo">
+            <img src="3.jpeg" alt="Our memory">
+        </div>
 
-<div class="photo">
-<img
-src="16.jpeg"
-alt="Our memory">
-</div>
+        <div class="photo">
+            <img src="5.jpeg" alt="Our memory">
+        </div>
 
+        <div class="photo">
+            <img src="6.jpeg" alt="Our memory">
+        </div>
 
-<div class="photo">
-<img
-src="18.jpeg"
-alt="Our memory">
-</div>
+        <div class="photo">
+            <img src="9.jpeg" alt="Our memory">
+        </div>
 
+        <div class="photo">
+            <img src="lensbooth-strip-1786039570049.jpg" alt="Our memory">
+        </div>
 
-<div class="photo">
-<img
-src="3.jpeg"
-alt="Our memory">
-</div>
+        <div class="photo">
+            <img src="lensbooth-strip-1786039883724.jpg" alt="Our memory">
+        </div>
 
-
-<div class="photo">
-<img
-src="5.jpeg"
-alt="Our memory">
-</div>
-
-
-<div class="photo">
-<img
-src="6.jpeg"
-alt="Our memory">
-</div>
-
-
-<div class="photo">
-<img
-src="9.jpeg"
-alt="Our memory">
-</div>
-
-
-<div class="photo">
-<img
-src="lensbooth-strip-1786039570049.jpg"
-alt="Our memory">
-</div>
-
-
-<div class="photo">
-<img
-src="lensbooth-strip-1786039883724.jpg"
-alt="Our memory">
-</div>
-
+    </div>
 
 </div>
-
-</div>
+```
 
 </section>
 
-
-<!-- THINGS ABOUT SANTI -->
+<!-- =========================
+     THINGS ABOUT SANTI
+========================= -->
 
 <section>
 
+```
 <div class="content">
 
-<p class="small-gold">
-Things I love about you
-</p>
+    <p class="small-gold">
+        Things I love about you
+    </p>
 
-<h2
-class="script"
-style="font-size:60px;">
+    <h2
+        class="script"
+        style="font-size:60px;">
 
-My favorite person ❤️
+        My favorite person ❤️
 
-</h2>
+    </h2>
 
+    <div class="facts">
 
-<div class="facts">
+        <div class="fact">
 
+            <div class="fact-icon">
+                🦖
+            </div>
 
-<div class="fact">
+            <h3>
+                Dinosaur Lover
+            </h3>
 
-<div class="fact-icon">
-🦖
-</div>
+            <p>
+                Because apparently dinosaurs are
+                one of the most important things
+                in life. 😂🦖
+            </p>
 
-<h3>
-Dinosaur Lover
-</h3>
+        </div>
 
-<p>
-Because apparently dinosaurs are
-one of the most important things
-in life. 😂🦖
-</p>
+        <div class="fact">
 
-</div>
+            <div class="fact-icon">
+                🎮
+            </div>
 
+            <h3>
+                My Gamer
+            </h3>
 
-<div class="fact">
+            <p>
+                My King can disappear into his PC games,
+                but somehow I still love him anyway. ❤️
+            </p>
 
-<div class="fact-icon">
-🎮
-</div>
+        </div>
 
-<h3>
-My Gamer
-</h3>
+        <div class="fact">
 
-<p>
-My King can disappear into his PC games,
-but somehow I still love him anyway. ❤️
-</p>
+            <div class="fact-icon">
+                🍳
+            </div>
 
-</div>
+            <h3>
+                Family Cook
+            </h3>
 
+            <p>
+                One of the sweetest things about you is
+                how you love cooking for your family.
+            </p>
 
-<div class="fact">
+        </div>
 
-<div class="fact-icon">
-🍳
-</div>
+        <div class="fact">
 
-<h3>
-Family Cook
-</h3>
+            <div class="fact-icon">
+                ❤️
+            </div>
 
-<p>
-One of the sweetest things about you is
-how you love cooking for your family.
-</p>
+            <h3>
+                Sweet & Understanding
+            </h3>
 
-</div>
+            <p>
+                Your kindness, patience and understanding
+                are some of the things I treasure most.
+            </p>
 
+        </div>
 
-<div class="fact">
-
-<div class="fact-icon">
-❤️
-</div>
-
-<h3>
-Sweet & Understanding
-</h3>
-
-<p>
-Your kindness, patience and understanding
-are some of the things I treasure most.
-</p>
-
-</div>
-
+    </div>
 
 </div>
-
-</div>
+```
 
 </section>
 
+<!-- =========================
+     DINOSAUR MESSAGE
+========================= -->
 
-<!-- DINOSAUR MESSAGE -->
+<section class="dino-section final-dino">
 
-<section class="dino-section">
-
+```
 <div class="content">
 
-<div style="font-size:110px;">
-🦖
+    <div style="font-size:110px;">
+        🦖
+    </div>
+
+    <h2
+        class="script"
+        style="font-size:55px;color:#e8c982;margin-top:20px;">
+
+        Even dinosaurs couldn't survive forever...
+
+    </h2>
+
+    <p
+        class="script"
+        style="font-size:31px;margin-top:25px;">
+
+        but my love for you will. ❤️
+
+    </p>
+
 </div>
-
-<h2
-class="script"
-style="font-size:55px;color:#e8c982;margin-top:20px;">
-
-Even dinosaurs couldn't survive forever...
-
-</h2>
-
-<p
-class="script"
-style="font-size:31px;margin-top:25px;">
-
-but my love for you will. ❤️
-
-</p>
-
-</div>
+```
 
 </section>
 
-
-<!-- FINAL -->
+<!-- =========================
+     FINAL
+========================= -->
 
 <section class="final">
 
+```
 <div class="content">
 
-<div class="final-heart">
-❤️
-</div>
+    <div class="final-heart">
+        ❤️
+    </div>
 
-<h2>
+    <h2>
 
-Happy Birthday,
-<br>
+        Happy Birthday,
+        <br>
 
-<span class="gold">
-Mi Amor
-</span>
+        <span class="gold">
+            Mi Amor
+        </span>
 
-</h2>
+    </h2>
 
+    <p>
+        Santi, I hope you know how incredibly
+        special you are to me.
+    </p>
 
-<p>
-Santi, I hope you know how incredibly
-special you are to me.
-</p>
+    <p style="margin-top:20px;">
 
+        May your birthday be filled with love,
+        laughter, good food, games, dinosaurs,
+        family, and everything that makes you happy.
 
-<p style="margin-top:20px;">
+    </p>
 
-May your birthday be filled with love,
-laughter, good food, games, dinosaurs,
-family, and everything that makes you happy.
+    <p
+        class="script"
+        style="font-size:29px;margin-top:28px;">
 
-</p>
+        From your Queen to her King,
+        <br>
+        with all the love in the world.
+        👑❤️
 
+    </p>
 
-<p
-class="script"
-style="font-size:29px;margin-top:28px;">
+    <button
+        class="button"
+        onclick="showSurprise()">
 
-From your Queen to her King,
-<br>
-with all the love in the world.
-👑❤️
+        🎁 One Last Surprise
 
-</p>
-
-
-<button
-class="button"
-onclick="showSurprise()">
-
-🎁 One Last Surprise
-
-</button>
+    </button>
 
 </div>
+```
 
 </section>
 
-
-<!-- FINAL SURPRISE -->
+<!-- =========================
+     FINAL SURPRISE
+========================= -->
 
 <div id="surprise">
 
+```
 <div class="surprise-content">
 
-<div class="big-heart">
-❤️
-</div>
+    <div class="big-heart">
+        ❤️
+    </div>
 
-<h2>
+    <h2>
 
-My King,
-<br>
-I Love You.
+        My King,
+        <br>
+        I Love You.
 
-</h2>
+    </h2>
 
+    <p>
 
-<p>
+        No matter where you are,
+        no matter how many kilometers
+        separate us...
 
-No matter where you are,
-no matter how many kilometers
-separate us...
+    </p>
 
-</p>
+    <p style="margin-top:18px;">
 
+        my heart will always know
+        where it belongs.
 
-<p style="margin-top:18px;">
+    </p>
 
-my heart will always know
-where it belongs.
+    <p
+        class="script"
+        style="margin-top:25px;font-size:31px;color:#e8c982;">
 
-</p>
+        Happy Birthday, Santi.
+        <br>
+        Forever your Queen. 👑
 
+    </p>
 
-<p
-class="script"
-style="margin-top:25px;font-size:31px;color:#e8c982;">
+    <button
+        class="button"
+        onclick="closeSurprise()">
 
-Happy Birthday, Santi.
-<br>
-Forever your Queen. 👑
+        ❤️ Back to our memories
 
-</p>
-
-
-<button
-class="button"
-onclick="closeSurprise()">
-
-❤️ Back to our memories
-
-</button>
+    </button>
 
 </div>
+```
 
 </div>
-
 
 <script>
-
 
 /* =========================
    STARS
@@ -1772,10 +1914,9 @@ onclick="closeSurprise()">
 
 const stars = document.getElementById("stars");
 
-for(let i = 0; i < 120; i++){
+for (let i = 0; i < 120; i++) {
 
-    const star =
-        document.createElement("div");
+    const star = document.createElement("div");
 
     star.className = "star";
 
@@ -1793,10 +1934,141 @@ for(let i = 0; i < 120; i++){
 
 
 /* =========================
+   MUSIC
+========================= */
+
+const music =
+    document.getElementById("birthdayMusic");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+let musicPlaying = false;
+
+function enterWebsite() {
+
+    const opening =
+        document.getElementById("opening");
+
+    opening.classList.add("hide");
+
+    music.volume = 0.45;
+
+    music.play()
+        .then(() => {
+
+            musicPlaying = true;
+            musicButton.innerHTML = "🎵";
+
+        })
+        .catch(() => {
+
+            musicPlaying = false;
+            musicButton.innerHTML = "🔇";
+
+        });
+
+    createHearts(20);
+
+    setTimeout(() => {
+        createHearts(10);
+    }, 1500);
+}
+
+
+function toggleMusic() {
+
+    if (music.paused) {
+
+        music.play();
+
+        musicPlaying = true;
+
+        musicButton.innerHTML = "🎵";
+
+    } else {
+
+        music.pause();
+
+        musicPlaying = false;
+
+        musicButton.innerHTML = "🔇";
+
+    }
+
+}
+
+
+/* =========================
+   CONTINUOUS HEARTS
+========================= */
+
+setInterval(() => {
+
+    if (
+        document.getElementById("opening")
+        .classList.contains("hide")
+    ) {
+
+        createHearts(1);
+
+    }
+
+}, 1800);
+
+
+/* =========================
+   PETALS
+========================= */
+
+setInterval(() => {
+
+    if (
+        document.getElementById("opening")
+        .classList.contains("hide")
+    ) {
+
+        createPetal();
+
+    }
+
+}, 2800);
+
+
+function createPetal() {
+
+    const petal =
+        document.createElement("div");
+
+    petal.className = "petal";
+
+    petal.innerHTML =
+        ["🌸", "💗", "✿", "♡"][
+            Math.floor(Math.random() * 4)
+        ];
+
+    petal.style.left =
+        Math.random() * 100 + "vw";
+
+    petal.style.fontSize =
+        (12 + Math.random() * 14) + "px";
+
+    petal.style.animationDuration =
+        (7 + Math.random() * 5) + "s";
+
+    document.body.appendChild(petal);
+
+    setTimeout(() => {
+        petal.remove();
+    }, 12000);
+}
+
+
+/* =========================
    DINOSAUR EGG
 ========================= */
 
-function hatchEgg(){
+function hatchEgg() {
 
     const egg =
         document.getElementById("egg");
@@ -1807,17 +2079,14 @@ function hatchEgg(){
     const text =
         document.getElementById("eggText");
 
-
-    if(egg.classList.contains("cracked")){
+    if (egg.classList.contains("cracked")) {
         return;
     }
-
 
     egg.classList.add("shake");
 
     text.innerHTML =
         "Something is moving inside... 👀";
-
 
     setTimeout(() => {
 
@@ -1832,14 +2101,11 @@ function hatchEgg(){
 
     }, 700);
 
-
     setTimeout(() => {
 
-        egg.style.display =
-            "none";
+        egg.style.display = "none";
 
-        dino.style.display =
-            "block";
+        dino.style.display = "block";
 
         text.innerHTML =
             "A little dinosaur for my dinosaur-loving King! 🦖❤️";
@@ -1849,7 +2115,6 @@ function hatchEgg(){
         createSparkles();
 
     }, 1600);
-
 }
 
 
@@ -1857,13 +2122,12 @@ function hatchEgg(){
    DINOSAUR SPARKLES
 ========================= */
 
-function createSparkles(){
+function createSparkles() {
 
     const container =
         document.querySelector(".egg-container");
 
-
-    for(let i = 0; i < 25; i++){
+    for (let i = 0; i < 25; i++) {
 
         const sparkle =
             document.createElement("div");
@@ -1871,45 +2135,30 @@ function createSparkles(){
         sparkle.className =
             "hatch-sparkle";
 
-
         sparkle.innerHTML =
-            ["✨","⭐","💫","✦"][
-                Math.floor(
-                    Math.random() * 4
-                )
+            ["✨", "⭐", "💫", "✦"][
+                Math.floor(Math.random() * 4)
             ];
 
-
-        sparkle.style.left =
-            "50%";
-
-        sparkle.style.top =
-            "50%";
-
+        sparkle.style.left = "50%";
+        sparkle.style.top = "50%";
 
         sparkle.style.setProperty(
             "--x",
             Math.random() * 300 - 150
         );
 
-
         sparkle.style.setProperty(
             "--y",
             Math.random() * 300 - 150
         );
 
-
         container.appendChild(sparkle);
 
-
         setTimeout(() => {
-
             sparkle.remove();
-
         }, 1500);
-
     }
-
 }
 
 
@@ -1917,16 +2166,14 @@ function createSparkles(){
    FLOATING HEARTS
 ========================= */
 
-function createHearts(amount){
+function createHearts(amount) {
 
-    for(let i = 0; i < amount; i++){
+    for (let i = 0; i < amount; i++) {
 
         const heart =
             document.createElement("div");
 
-        heart.className =
-            "heart";
-
+        heart.className = "heart";
 
         const heartTypes = [
             "❤️",
@@ -1937,7 +2184,6 @@ function createHearts(amount){
             "🤍"
         ];
 
-
         heart.innerHTML =
             heartTypes[
                 Math.floor(
@@ -1946,30 +2192,21 @@ function createHearts(amount){
                 )
             ];
 
-
         heart.style.left =
             Math.random() * 100 + "vw";
-
 
         heart.style.animationDuration =
             (4 + Math.random() * 4) + "s";
 
-
         heart.style.fontSize =
             (15 + Math.random() * 25) + "px";
 
-
         document.body.appendChild(heart);
 
-
         setTimeout(() => {
-
             heart.remove();
-
         }, 8000);
-
     }
-
 }
 
 
@@ -1983,33 +2220,23 @@ const birthday =
     ).getTime();
 
 
-function updateCountdown(){
+function updateCountdown() {
 
     const now =
         new Date().getTime();
 
-
     const difference =
         birthday - now;
 
+    if (difference <= 0) {
 
-    if(difference <= 0){
-
-        document.getElementById("days").innerText =
-            "00";
-
-        document.getElementById("hours").innerText =
-            "00";
-
-        document.getElementById("minutes").innerText =
-            "00";
-
-        document.getElementById("seconds").innerText =
-            "00";
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
 
         return;
     }
-
 
     const days =
         Math.floor(
@@ -2017,13 +2244,11 @@ function updateCountdown(){
             (1000 * 60 * 60 * 24)
         );
 
-
     const hours =
         Math.floor(
             (difference /
             (1000 * 60 * 60)) % 24
         );
-
 
     const minutes =
         Math.floor(
@@ -2031,28 +2256,22 @@ function updateCountdown(){
             (1000 * 60)) % 60
         );
 
-
     const seconds =
         Math.floor(
             (difference / 1000) % 60
         );
 
-
     document.getElementById("days").innerText =
-        String(days).padStart(2,"0");
-
+        String(days).padStart(2, "0");
 
     document.getElementById("hours").innerText =
-        String(hours).padStart(2,"0");
-
+        String(hours).padStart(2, "0");
 
     document.getElementById("minutes").innerText =
-        String(minutes).padStart(2,"0");
-
+        String(minutes).padStart(2, "0");
 
     document.getElementById("seconds").innerText =
-        String(seconds).padStart(2,"0");
-
+        String(seconds).padStart(2, "0");
 }
 
 
@@ -2068,28 +2287,31 @@ setInterval(
    FINAL SURPRISE
 ========================= */
 
-function showSurprise(){
+function showSurprise() {
 
     const surprise =
         document.getElementById("surprise");
 
-    surprise.style.display =
-        "flex";
+    surprise.style.display = "flex";
 
     createHearts(120);
 
+    for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+            createPetal();
+        }, i * 100);
+    }
 }
 
 
-function closeSurprise(){
+function closeSurprise() {
 
-    document.getElementById("surprise").style.display =
-        "none";
+    document.getElementById("surprise")
+        .style.display = "none";
 
 }
 
 </script>
-
 
 </body>
 </html>
