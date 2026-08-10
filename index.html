@@ -896,15 +896,18 @@ section {
 }
 
 /* =========================
-   SURPRISE
+   FINAL SURPRISE — SPIRAL HEARTS + FLOWERS
 ========================= */
 
 #surprise {
     display: none;
     position: fixed;
     inset: 0;
+    overflow: hidden;
     background:
-        radial-gradient(circle at center, rgba(130,30,80,.35), transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(255, 105, 175, .22), transparent 25%),
+        radial-gradient(circle at 20% 20%, rgba(232, 201, 130, .12), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(255, 80, 150, .12), transparent 30%),
         #09070d;
     z-index: 1000;
     align-items: center;
@@ -912,10 +915,30 @@ section {
     padding: 25px;
 }
 
+#surprise::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background:
+        radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 2px);
+    background-size: 32px 32px;
+    animation: starDrift 18s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes starDrift {
+    from { transform: rotate(0deg) scale(1); }
+    to { transform: rotate(360deg) scale(1.15); }
+}
+
 .surprise-content {
+    position: relative;
+    z-index: 1200;
     text-align: center;
     max-width: 700px;
+    padding: 30px;
     animation: reveal 1.5s ease forwards;
+    text-shadow: 0 2px 20px rgba(0,0,0,.55);
 }
 
 @keyframes reveal {
@@ -923,7 +946,6 @@ section {
         transform: scale(.7);
         opacity: 0;
     }
-
     to {
         transform: scale(1);
         opacity: 1;
@@ -933,6 +955,7 @@ section {
 .surprise-content .big-heart {
     font-size: 100px;
     animation: heartbeat 1.4s infinite;
+    filter: drop-shadow(0 0 30px rgba(255,100,170,.8));
 }
 
 .surprise-content h2 {
@@ -948,9 +971,171 @@ section {
     line-height: 1.7;
 }
 
+/* Spiral hearts filling the whole screen */
+.spiral-heart {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: max-content;
+    pointer-events: none;
+    z-index: 1100;
+    opacity: 0;
+    transform:
+        translate(-50%, -50%)
+        rotate(var(--start-angle))
+        translateX(0)
+        scale(.2);
+    animation: spiralHeart var(--duration) cubic-bezier(.2,.65,.2,1) var(--delay) forwards;
+    filter: drop-shadow(0 0 9px rgba(255, 100, 180, .7));
+    will-change: transform, opacity;
+}
+
+@keyframes spiralHeart {
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            rotate(var(--start-angle))
+            translateX(0)
+            scale(.15);
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    35% {
+        opacity: .95;
+    }
+
+    72% {
+        opacity: .9;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            rotate(calc(var(--start-angle) + var(--turns)))
+            translateX(var(--radius))
+            scale(1);
+    }
+}
+
+/* Extra hearts slowly orbiting the center */
+.orbit-heart {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    pointer-events: none;
+    z-index: 1090;
+    opacity: 0;
+    animation: orbitHeart var(--orbit-duration) linear var(--orbit-delay) infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 130, 190, .65));
+}
+
+@keyframes orbitHeart {
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg)
+            translateX(var(--orbit-radius))
+            scale(.65);
+    }
+
+    12% { opacity: .8; }
+
+    88% { opacity: .8; }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg)
+            translateX(var(--orbit-radius))
+            scale(1);
+    }
+}
+
+/* Different flowers float/fall across the entire screen */
+.surprise-flower {
+    position: absolute;
+    top: -12vh;
+    pointer-events: none;
+    z-index: 1150;
+    opacity: 0;
+    animation: flowerFloat var(--flower-duration) ease-in-out var(--flower-delay) forwards;
+    filter: drop-shadow(0 0 8px rgba(255, 190, 220, .55));
+    will-change: transform, opacity;
+}
+
+@keyframes flowerFloat {
+    0% {
+        opacity: 0;
+        transform:
+            translate3d(0, -10vh, 0)
+            rotate(0deg)
+            scale(.65);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+            translate3d(var(--sway), 55vh, 0)
+            rotate(180deg)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate3d(calc(var(--sway) * -1), 120vh, 0)
+            rotate(420deg)
+            scale(.8);
+    }
+}
+
+/* Soft flower clusters around the edges */
+.flower-burst {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    pointer-events: none;
+    z-index: 1120;
+    opacity: 0;
+    animation: flowerBurst var(--burst-duration) ease-out var(--burst-delay) forwards;
+}
+
+@keyframes flowerBurst {
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            rotate(var(--burst-angle))
+            translateX(0)
+            scale(.3);
+    }
+
+    20% { opacity: 1; }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            rotate(var(--burst-angle))
+            translateX(var(--burst-distance))
+            scale(1.05);
+    }
+}
+
 /* =========================
    FLOATING HEARTS
 ========================= */
+
 
 .heart {
     position: fixed;
@@ -1084,11 +1269,287 @@ section {
     }
 }
 
+
+/* =========================
+   CELLPHONE PADLOCK ENTRANCE
+========================= */
+
+#lockScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(255, 105, 180, .20), transparent 30%),
+        linear-gradient(145deg, #09070d, #1a0c18 55%, #08060b);
+    transition: opacity .9s ease, visibility .9s ease;
+}
+
+#lockScreen.unlocking {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.lock-bg-heart {
+    position: absolute;
+    font-size: 22px;
+    opacity: .25;
+    animation: lockFloat 7s linear infinite;
+}
+
+@keyframes lockFloat {
+    from {
+        transform: translateY(110vh) rotate(0deg);
+    }
+    to {
+        transform: translateY(-20vh) rotate(360deg);
+    }
+}
+
+.phone {
+    position: relative;
+    width: min(330px, 82vw);
+    height: min(620px, 82vh);
+    min-height: 520px;
+    border: 8px solid #17141b;
+    border-radius: 42px;
+    background: linear-gradient(160deg, #241522, #0d0a10 70%);
+    box-shadow:
+        0 0 0 2px rgba(232,201,130,.25),
+        0 30px 90px rgba(0,0,0,.65),
+        0 0 70px rgba(255,90,170,.22);
+    padding: 13px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.phone::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 105px;
+    height: 25px;
+    border-radius: 20px;
+    background: #08070b;
+    z-index: 4;
+}
+
+.phone-screen {
+    width: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 25%, rgba(255,120,190,.16), transparent 30%),
+        linear-gradient(180deg, #160b15, #08070b);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 25px 35px;
+    text-align: center;
+}
+
+.phone-time {
+    position: absolute;
+    top: 18px;
+    left: 31px;
+    z-index: 5;
+    color: rgba(255,255,255,.85);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.lock-status {
+    color: rgba(255,255,255,.62);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.padlock {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(232,201,130,.35);
+    box-shadow: 0 0 35px rgba(255,100,175,.22);
+    animation: lockPulse 2.2s ease-in-out infinite;
+}
+
+.padlock span {
+    font-size: 60px;
+    filter: drop-shadow(0 0 15px rgba(255,120,190,.5));
+}
+
+@keyframes lockPulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+}
+
+.lock-title {
+    font-family: "Cormorant Garamond", serif;
+    color: #e8c982;
+    font-size: clamp(30px, 8vw, 42px);
+    line-height: 1.05;
+    margin: 0 0 10px;
+}
+
+.lock-subtitle {
+    color: rgba(255,255,255,.78);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0 0 25px;
+}
+
+.lock-input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(232,201,130,.35);
+    border-radius: 18px;
+    background: rgba(255,255,255,.07);
+    color: white;
+    padding: 14px 16px;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-family: inherit;
+}
+
+.lock-input:focus {
+    border-color: #e8c982;
+    box-shadow: 0 0 20px rgba(232,201,130,.12);
+}
+
+.unlock-button {
+    width: 100%;
+    border: none;
+    border-radius: 18px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    cursor: pointer;
+    color: #120a11;
+    background: linear-gradient(135deg, #e8c982, #f3b3d2);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 19px;
+    font-weight: 700;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.unlock-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255,120,180,.25);
+}
+
+.lock-hint {
+    color: rgba(255,255,255,.42);
+    font-size: 11px;
+    margin-top: 18px;
+}
+
+.lock-error {
+    min-height: 18px;
+    color: #ff9bc8;
+    font-size: 12px;
+    margin-top: 9px;
+}
+
+@media (max-width: 500px) {
+    .phone {
+        min-height: 500px;
+        height: 78vh;
+        border-width: 6px;
+        border-radius: 35px;
+    }
+
+    .phone-screen {
+        border-radius: 27px;
+    }
+}
+
 </style>
 
 </head>
 
 <body>
+
+<!-- =========================
+     CELLPHONE PADLOCK ENTRANCE
+========================= -->
+
+<div id="lockScreen">
+
+    <div class="lock-bg-heart" style="left:8%;animation-delay:-1s;">♡</div>
+    <div class="lock-bg-heart" style="left:20%;animation-delay:-4s;">♥</div>
+    <div class="lock-bg-heart" style="left:34%;animation-delay:-2s;">♡</div>
+    <div class="lock-bg-heart" style="left:51%;animation-delay:-5s;">♥</div>
+    <div class="lock-bg-heart" style="left:68%;animation-delay:-3s;">♡</div>
+    <div class="lock-bg-heart" style="left:82%;animation-delay:-6s;">♥</div>
+    <div class="lock-bg-heart" style="left:94%;animation-delay:-2.5s;">♡</div>
+
+    <div class="phone">
+
+        <div class="phone-time" id="lockTime">00:00</div>
+
+        <div class="phone-screen">
+
+            <div class="lock-status">
+                🔒 PRIVATE MESSAGE
+            </div>
+
+            <div class="padlock">
+                <span id="lockIcon">🔒</span>
+            </div>
+
+            <h1 class="lock-title">
+                Open Your<br>Birthday Surprise
+            </h1>
+
+            <p class="lock-subtitle">
+                This little world was made<br>
+                especially for my King. ❤️
+            </p>
+
+            <input
+                id="birthdayPassword"
+                class="lock-input"
+                type="password"
+                autocomplete="off"
+                placeholder="Enter the secret password"
+                onkeydown="if(event.key==='Enter') unlockBirthday()"
+            >
+
+            <button
+                class="unlock-button"
+                onclick="unlockBirthday()">
+                🔓 Open My Surprise
+            </button>
+
+            <div id="lockError" class="lock-error"></div>
+
+            <div class="lock-hint">
+                Only my King knows the key. 👑
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
 
 <!-- =========================
      OPENING
@@ -2759,58 +3220,57 @@ section {
 
 <div id="surprise">
 
-<div class="surprise-content">
+    <!-- Full-screen animated layers -->
+    <div id="spiralHearts" aria-hidden="true"></div>
+    <div id="surpriseFlowers" aria-hidden="true"></div>
+    <div id="flowerBursts" aria-hidden="true"></div>
 
-    <div class="big-heart">
-        ❤️
+    <div class="surprise-content">
+
+        <div class="big-heart">
+            ❤️
+        </div>
+
+        <h2>
+            My King,
+            <br>
+            I Love You.
+        </h2>
+
+        <p>
+            No matter where you are,
+            no matter how many kilometers
+            separate us...
+        </p>
+
+        <p style="margin-top:18px;">
+            my heart will always know
+            where it belongs.
+        </p>
+
+        <p
+            class="script"
+            style="margin-top:25px;font-size:31px;color:#e8c982;">
+
+            Happy Birthday, Santi.
+            <br>
+            Forever your Queen. 👑
+        </p>
+
+        <button
+            class="button"
+            onclick="closeSurprise()">
+
+            ❤️ Back to our memories
+
+        </button>
+
     </div>
-
-    <h2>
-
-        My King,
-        <br>
-        I Love You.
-
-    </h2>
-
-    <p>
-
-        No matter where you are,
-        no matter how many kilometers
-        separate us...
-
-    </p>
-
-    <p style="margin-top:18px;">
-
-        my heart will always know
-        where it belongs.
-
-    </p>
-
-    <p
-        class="script"
-        style="margin-top:25px;font-size:31px;color:#e8c982;">
-
-        Happy Birthday, Santi.
-        <br>
-        Forever your Queen. 👑
-
-    </p>
-
-    <button
-        class="button"
-        onclick="closeSurprise()">
-
-        ❤️ Back to our memories
-
-    </button>
-
-</div>
 
 </div>
 
 <script>
+
 
 /* =========================
    STARS
@@ -3189,7 +3649,252 @@ setInterval(
 
 /* =========================
    FINAL SURPRISE
+   Full-screen spiral hearts + flowers
 ========================= */
+
+const surpriseHeartLayer =
+    document.getElementById("spiralHearts");
+
+const surpriseFlowerLayer =
+    document.getElementById("surpriseFlowers");
+
+const flowerBurstLayer =
+    document.getElementById("flowerBursts");
+
+const surpriseHeartTypes = [
+    "❤️", "💕", "💖", "💗", "💘", "💝", "💓", "💞", "🤍", "💜"
+];
+
+const surpriseFlowerTypes = [
+    "🌹", "🌷", "🌸", "🌺", "🌻", "🌼", "🪻", "💐", "🌷", "🌸"
+];
+
+function createSpiralHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "spiral-heart";
+
+    heart.innerHTML =
+        surpriseHeartTypes[
+            Math.floor(
+                Math.random() *
+                surpriseHeartTypes.length
+            )
+        ];
+
+    const angle =
+        Math.random() * 360;
+
+    const radius =
+        Math.max(window.innerWidth, window.innerHeight)
+        * (0.45 + Math.random() * 0.75);
+
+    const turns =
+        (Math.random() > 0.5 ? 1 : -1) *
+        (540 + Math.random() * 720) + "deg";
+
+    const duration =
+        3.8 + Math.random() * 3.2;
+
+    const delay =
+        Math.random() * 1.4;
+
+    heart.style.setProperty(
+        "--start-angle",
+        angle + "deg"
+    );
+
+    heart.style.setProperty(
+        "--radius",
+        radius + "px"
+    );
+
+    heart.style.setProperty(
+        "--turns",
+        turns
+    );
+
+    heart.style.setProperty(
+        "--duration",
+        duration + "s"
+    );
+
+    heart.style.setProperty(
+        "--delay",
+        delay + "s"
+    );
+
+    heart.style.fontSize =
+        (18 + Math.random() * 34) + "px";
+
+    surpriseHeartLayer.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, (duration + delay) * 1000 + 500);
+}
+
+
+function createOrbitHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "orbit-heart";
+
+    heart.innerHTML =
+        surpriseHeartTypes[
+            Math.floor(
+                Math.random() *
+                surpriseHeartTypes.length
+            )
+        ];
+
+    heart.style.setProperty(
+        "--orbit-radius",
+        (Math.min(window.innerWidth, window.innerHeight)
+        * (0.18 + Math.random() * 0.38)) + "px"
+    );
+
+    heart.style.setProperty(
+        "--orbit-duration",
+        (5 + Math.random() * 6) + "s"
+    );
+
+    heart.style.setProperty(
+        "--orbit-delay",
+        Math.random() * 2 + "s"
+    );
+
+    heart.style.fontSize =
+        (14 + Math.random() * 25) + "px";
+
+    surpriseHeartLayer.appendChild(heart);
+}
+
+
+function createSurpriseFlower() {
+
+    const flower =
+        document.createElement("div");
+
+    flower.className = "surprise-flower";
+
+    flower.innerHTML =
+        surpriseFlowerTypes[
+            Math.floor(
+                Math.random() *
+                surpriseFlowerTypes.length
+            )
+        ];
+
+    flower.style.left =
+        Math.random() * 100 + "vw";
+
+    flower.style.setProperty(
+        "--sway",
+        (Math.random() * 260 - 130) + "px"
+    );
+
+    flower.style.setProperty(
+        "--flower-duration",
+        (6 + Math.random() * 7) + "s"
+    );
+
+    flower.style.setProperty(
+        "--flower-delay",
+        Math.random() * 1.8 + "s"
+    );
+
+    flower.style.fontSize =
+        (20 + Math.random() * 34) + "px";
+
+    surpriseFlowerLayer.appendChild(flower);
+
+    setTimeout(() => {
+        flower.remove();
+    }, 15000);
+}
+
+
+function createFlowerBurst() {
+
+    const flower =
+        document.createElement("div");
+
+    flower.className = "flower-burst";
+
+    flower.innerHTML =
+        surpriseFlowerTypes[
+            Math.floor(
+                Math.random() *
+                surpriseFlowerTypes.length
+            )
+        ];
+
+    flower.style.setProperty(
+        "--burst-angle",
+        Math.random() * 360 + "deg"
+    );
+
+    flower.style.setProperty(
+        "--burst-distance",
+        (Math.min(window.innerWidth, window.innerHeight)
+        * (0.35 + Math.random() * 0.5)) + "px"
+    );
+
+    flower.style.setProperty(
+        "--burst-duration",
+        (2.5 + Math.random() * 2.2) + "s"
+    );
+
+    flower.style.setProperty(
+        "--burst-delay",
+        Math.random() * .9 + "s"
+    );
+
+    flower.style.fontSize =
+        (20 + Math.random() * 28) + "px";
+
+    flowerBurstLayer.appendChild(flower);
+
+    setTimeout(() => {
+        flower.remove();
+    }, 5500);
+}
+
+
+function startFinalAnimation() {
+
+    /* Large wave of spiral hearts */
+    for (let i = 0; i < 170; i++) {
+        setTimeout(() => {
+            createSpiralHeart();
+        }, i * 18);
+    }
+
+    /* A few hearts remain orbiting around the message */
+    for (let i = 0; i < 26; i++) {
+        createOrbitHeart();
+    }
+
+    /* Flowers falling from every part of the screen */
+    for (let i = 0; i < 75; i++) {
+        setTimeout(() => {
+            createSurpriseFlower();
+        }, i * 45);
+    }
+
+    /* Flower bursts from the center */
+    for (let i = 0; i < 32; i++) {
+        setTimeout(() => {
+            createFlowerBurst();
+        }, i * 90);
+    }
+}
+
 
 function showSurprise() {
 
@@ -3198,12 +3903,26 @@ function showSurprise() {
 
     surprise.style.display = "flex";
 
-    createHearts(120);
+    /* Let the overlay appear first, then unleash the animation */
+    setTimeout(() => {
+        startFinalAnimation();
+    }, 250);
 
-    for (let i = 0; i < 20; i++) {
-        setTimeout(() => {
-            createPetal();
-        }, i * 100);
+    /* Keep the screen alive with new flowers and spiral hearts */
+    if (!window.finalSurpriseLoop) {
+
+        window.finalSurpriseLoop =
+            setInterval(() => {
+
+                for (let i = 0; i < 5; i++) {
+                    createSpiralHeart();
+                }
+
+                for (let i = 0; i < 3; i++) {
+                    createSurpriseFlower();
+                }
+
+            }, 900);
     }
 }
 
@@ -3213,6 +3932,94 @@ function closeSurprise() {
     document.getElementById("surprise")
         .style.display = "none";
 
+    surpriseHeartLayer.innerHTML = "";
+    surpriseFlowerLayer.innerHTML = "";
+    flowerBurstLayer.innerHTML = "";
+
+    if (window.finalSurpriseLoop) {
+        clearInterval(window.finalSurpriseLoop);
+        window.finalSurpriseLoop = null;
+    }
+
+}
+
+
+
+/* =========================
+   BIRTHDAY PADLOCK
+========================= */
+
+function updateLockTime() {
+    const el = document.getElementById("lockTime");
+    if (!el) return;
+
+    const now = new Date();
+
+    el.innerText =
+        String(now.getHours()).padStart(2, "0") +
+        ":" +
+        String(now.getMinutes()).padStart(2, "0");
+}
+
+updateLockTime();
+setInterval(updateLockTime, 30000);
+
+/*
+   Change this to whatever secret word/number
+   you want Santi to enter.
+*/
+const birthdaySecret = "santi";
+
+function unlockBirthday() {
+
+    const input =
+        document.getElementById("birthdayPassword");
+
+    const error =
+        document.getElementById("lockError");
+
+    const icon =
+        document.getElementById("lockIcon");
+
+    const lockScreen =
+        document.getElementById("lockScreen");
+
+    if (
+        input.value.trim().toLowerCase() ===
+        birthdaySecret.toLowerCase()
+    ) {
+
+        error.innerText = "";
+        icon.innerText = "🔓";
+
+        lockScreen.classList.add("unlocking");
+
+        setTimeout(() => {
+            lockScreen.style.display = "none";
+        }, 950);
+
+    } else {
+
+        error.innerText =
+            "Hmm... that's not the key, my King. ❤️";
+
+        input.value = "";
+
+        icon.innerText = "🔒";
+
+        input.animate(
+            [
+                { transform: "translateX(0)" },
+                { transform: "translateX(-8px)" },
+                { transform: "translateX(8px)" },
+                { transform: "translateX(-5px)" },
+                { transform: "translateX(0)" }
+            ],
+            {
+                duration: 350
+            }
+        );
+    }
 }
 
 </script>
