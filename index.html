@@ -1593,6 +1593,11 @@ section {
     <source src="No Matter Where You Are.mp3" type="audio/mpeg">
 </audio>
 
+<!-- Final surprise music -->
+<audio id="finalSurpriseMusic" preload="auto">
+    <source src="Zoo.mp3" type="audio/mpeg">
+</audio>
+
 <button
  id="musicButton"
  class="music-control"
@@ -3304,6 +3309,11 @@ for (let i = 0; i < 120; i++) {
 const music =
     document.getElementById("birthdayMusic");
 
+const finalSurpriseMusic =
+    document.getElementById("finalSurpriseMusic");
+
+let finalSurpriseMusicPlaying = false;
+
 const musicButton =
     document.getElementById("musicButton");
 
@@ -3901,6 +3911,23 @@ function showSurprise() {
     const surprise =
         document.getElementById("surprise");
 
+    /* Switch from the birthday song to Zoo.mp3 */
+    music.pause();
+    music.currentTime = 0;
+    musicPlaying = false;
+    musicButton.innerHTML = "🔇";
+
+    finalSurpriseMusic.currentTime = 0;
+    finalSurpriseMusic.volume = 0.7;
+
+    finalSurpriseMusic.play()
+        .then(() => {
+            finalSurpriseMusicPlaying = true;
+        })
+        .catch(() => {
+            finalSurpriseMusicPlaying = false;
+        });
+
     surprise.style.display = "flex";
 
     /* Let the overlay appear first, then unleash the animation */
@@ -3935,6 +3962,11 @@ function closeSurprise() {
     surpriseHeartLayer.innerHTML = "";
     surpriseFlowerLayer.innerHTML = "";
     flowerBurstLayer.innerHTML = "";
+
+    /* Stop the final music when leaving the surprise */
+    finalSurpriseMusic.pause();
+    finalSurpriseMusic.currentTime = 0;
+    finalSurpriseMusicPlaying = false;
 
     if (window.finalSurpriseLoop) {
         clearInterval(window.finalSurpriseLoop);
